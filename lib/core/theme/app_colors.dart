@@ -8,11 +8,4 @@ class AppColors {
   static const Color red= Color(0xffE82626);
   static const Color green= Color(0xff57AA53
   );
-
-  static const Color redlight= Color(0xFFE4002B);
-  static const Color darkblue= Color(0xFF002868);
-  static const Color gold= Color(0xFFFFA800);
-
-
-
 }
