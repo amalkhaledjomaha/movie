@@ -1,5 +1,4 @@
- import 'dart:ui';
-
+import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTextStyle {
@@ -11,6 +10,12 @@ class AppTextStyle {
 
    static final TextStyle regular20white = TextStyle(
      fontSize:20,
+     fontWeight: FontWeight.w400,
+     color:AppColors.white.withValues(alpha: 0.6),
+   );
+
+   static final TextStyle regular18white = TextStyle(
+     fontSize:18,
      fontWeight: FontWeight.w400,
      color:AppColors.white,
    );
@@ -38,6 +43,13 @@ class AppTextStyle {
      fontWeight: FontWeight.w600,
      color:AppColors.darkblack,
    );
+
+   static final TextStyle  SemiBold20darkyellow = TextStyle(
+     fontSize:20,
+     fontWeight: FontWeight.w600,
+     color:AppColors.yellow,
+   );
+
 
    static final TextStyle  Bold24white = TextStyle(
      fontSize:24,

@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
 class AppString {
-  static const String findYourNextFavoriteMovie="Find Your Next Favorite Movie Here";
+  static const String findYourNextFavoriteMovie="Find Your Next\n Favorite Movie Here";
   static const String getAccessToHugeLibrary="Get access to a huge library of movies to suit all tastes. You will surely like it.";
 
   static const String discoverMovies="Discover Movies";
