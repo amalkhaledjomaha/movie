@@ -30,4 +30,31 @@ class AppString {
   static const String email="Email";
   static const String verifyEmail="Verify Email";
   static const String forgetPassword="Forget Password";
+
+
+  //login
+  static const String password="Password";
+  static const String forgetenpaword="Forget Password ?";
+  static const String login="Login";
+  static const String donthaveaccount="Don’t Have Account ?";
+  static const String createone="Create One";
+  static const String or="OR";
+  static const String loginwithgoogle="Login With Google";
+
+  //Register
+  static const String register="Register";
+  static const String name="Name";
+  static const String confirmpassword="Confirm Password";
+  static const String phonenumber="Phone Number";
+  static const String createaccount="Create Account";
+  static const String alreadyhaveaccount="Already Have Account ?";
+
+//updateprofile
+
+  static const String pickavatar="Pick Avatar";
+  static const String johnsafwat="John Safwat";
+  static const String resetpassword="Reset Password";
+  static const String deleteaccount="Delete Account";
+  static const String updatedata="Update Data";
+
 }
