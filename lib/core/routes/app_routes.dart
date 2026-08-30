@@ -3,4 +3,8 @@ class AppRoutes {
  static const  String onboardingfirstpage="Onboardingfirstpage";
  static const  String onboardingcontentpage="Onboardingcontentpage";
  static const  String onboardingScreen="OnboardingScreen";
+
+ static const String loginScreen = "LoginScreen";
+ static const String registerScreen = "RegisterScreen";
+ static const String updateProfileScreen = "UpdateProfileScreen";
 }

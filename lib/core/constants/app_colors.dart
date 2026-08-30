@@ -19,4 +19,8 @@ class AppColors {
   static const Color burgundy= Color(0xFF601321);
   static const Color grayliner= Color(0xFF2A2C30);
 
+
+  static const Color redlight= Color(0xFFE4002B);
+  static const Color darkblue= Color(0xFF002868);
+  static const Color gold= Color(0xFFFFA800);
 }

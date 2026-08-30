@@ -1,8 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moviesproject/core/theme/app_colors.dart';
-
+import 'package:moviesproject/core/constants/app_colors.dart';
 
 class LiberiaFlag extends StatelessWidget {
   const LiberiaFlag({super.key});

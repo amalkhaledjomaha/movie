@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:moviesproject/core/theme/app_colors.dart';
+import 'package:moviesproject/core/constants/app_colors.dart';
 
 class EgyptFlag  extends StatelessWidget{
   const EgyptFlag({super.key});

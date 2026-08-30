@@ -51,7 +51,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
               if (isLastPage) {
                 await finishOnboarding();
                 //login
-               Navigator.of(context).pushNamed(AppRoutes.resetPasswordScreen);
+               Navigator.of(context).pushNamed(AppRoutes.loginScreen);
               } else {
                 pageController.nextPage(
                   duration: const Duration(milliseconds: 500),

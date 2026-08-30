@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moviesproject/core/theme/app_assets.dart';
-import 'package:moviesproject/core/theme/app_colors.dart';
-import 'package:moviesproject/core/theme/app_string.dart';
-import 'package:moviesproject/core/theme/app_text_style.dart';
+import 'package:moviesproject/core/constants/app_assets.dart';
+import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/core/constants/app_colors.dart';
+
+import 'package:moviesproject/core/constants/app_string.dart';
+import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/features/auth/presentation/widgets/avatar_bottom_sheet.dart';
 
 
@@ -117,8 +119,11 @@ class UpdateProfileScreen extends StatefulWidget{
                      SizedBox(height: 16),
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: TextButton(onPressed: (){},
-                        child: Text(AppString.resetpassword,style: AppTextStyle.regular20white,),),
+                      child: TextButton(
+                      style: TextButton.styleFrom(overlayColor: Colors.transparent),onPressed: (){
+                        Navigator.pushNamed(context, AppRoutes.resetPasswordScreen,);
+                      },
+                        child: Text(AppString.resetpassword,style: AppTextStyle.regular20whitewithoutalpha,),),
                     ),
                     Spacer(),
                     CustomButton(text: AppString.deleteaccount, onPressd: (){},backgroundColor :AppColors.red),

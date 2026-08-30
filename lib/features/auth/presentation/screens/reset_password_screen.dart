@@ -14,7 +14,10 @@ class ResetPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.darkblack,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+
+          },
           icon: Icon(Icons.arrow_back),
           color: AppColors.yellow,
         ),
@@ -50,7 +53,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     prefixIcon: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: SvgPicture.asset(
-                        AppAssets.email,
+                        AppAssets.Email,
                         height: 25,
                         width: 31,
                       ),

@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:moviesproject/core/theme/app_assets.dart';
-import 'package:moviesproject/core/theme/app_colors.dart';
-import 'package:moviesproject/core/theme/app_string.dart';
-import 'package:moviesproject/core/theme/app_text_style.dart';
+import 'package:moviesproject/core/constants/app_assets.dart';
+import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/core/constants/app_colors.dart';
+import 'package:moviesproject/core/constants/app_string.dart';
+import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/features/auth/presentation/screens/register_screen.dart';
 import 'package:moviesproject/features/auth/presentation/widgets/custom_button .dart';
 import 'package:moviesproject/features/auth/presentation/widgets/customtextfield.dart';
@@ -90,10 +91,11 @@ class LoginScreen extends StatefulWidget {
                         text:AppString.createone,
                         style:AppTextStyle.regular14yellow,
                       recognizer: TapGestureRecognizer()
-                        ..onTap =(){
-                          Navigator.push(
-                              context, MaterialPageRoute(builder:
-                          (context)=>  RegisterScreen(),),);
+                        ..onTap = () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRoutes.registerScreen,
+                          );
                         }
                     ),
                   ],

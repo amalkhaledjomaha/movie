@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/features/auth/presentation/screens/login_screen.dart';
+import 'package:moviesproject/features/auth/presentation/screens/register_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/reset_password_screen.dart';
+import 'package:moviesproject/features/auth/presentation/screens/update_profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'features/onboarding/presentation/screens/OnboardingContentPage.dart';
 import 'features/onboarding/presentation/screens/OnboardingFirstPage.dart';
@@ -34,9 +37,12 @@ class MyApp extends StatelessWidget {
      routes: {
        AppRoutes.resetPasswordScreen:(_)=>ResetPasswordScreen(),
        AppRoutes.onboardingScreen:(_)=>Onboardingscreen(),
+       AppRoutes.loginScreen: (_) =>  LoginScreen(),
+       AppRoutes.registerScreen: (_) =>  RegisterScreen(),
+       AppRoutes.updateProfileScreen: (_) =>  UpdateProfileScreen(),
      },
       initialRoute: onboardingSeen
-          ? AppRoutes.resetPasswordScreen
+          ? AppRoutes.loginScreen
           : AppRoutes.onboardingScreen,
     );
   }

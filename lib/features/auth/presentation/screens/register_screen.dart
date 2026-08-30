@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:moviesproject/core/theme/app_assets.dart';
-import 'package:moviesproject/core/theme/app_colors.dart';
-import 'package:moviesproject/core/theme/app_string.dart';
-import 'package:moviesproject/core/theme/app_text_style.dart';
+import 'package:moviesproject/core/constants/app_assets.dart';
+
+import 'package:moviesproject/core/constants/app_colors.dart';
+import 'package:moviesproject/core/constants/app_string.dart';
+import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/features/auth/presentation/screens/update_profile_screen.dart';
 import 'package:moviesproject/features/auth/presentation/widgets/avatarcarousel.dart';
 

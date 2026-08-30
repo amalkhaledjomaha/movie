@@ -12,8 +12,21 @@ class AppTextStyle {
    static final TextStyle regular20white = TextStyle(
      fontSize:20,
      fontWeight: FontWeight.w400,
+     color:AppColors.white.withValues(alpha: 0.6),
+   );
+
+   static final TextStyle regular20whitewithoutalpha = TextStyle(
+     fontSize:20,
+     fontWeight: FontWeight.w400,
      color:AppColors.white,
    );
+
+   static final TextStyle regular18white = TextStyle(
+     fontSize:18,
+     fontWeight: FontWeight.w400,
+     color:AppColors.white,
+   );
+
 
    static final TextStyle regular20black = TextStyle(
      fontSize:20,
@@ -37,6 +50,12 @@ class AppTextStyle {
      fontSize:20,
      fontWeight: FontWeight.w600,
      color:AppColors.darkblack,
+   );
+
+   static final TextStyle  SemiBold20darkyellow = TextStyle(
+     fontSize:20,
+     fontWeight: FontWeight.w600,
+     color:AppColors.yellow,
    );
 
    static final TextStyle  Bold24white = TextStyle(
