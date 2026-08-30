@@ -66,15 +66,20 @@ class LoginScreen extends StatefulWidget {
                     setState(() {
                       isPasswordVisible =!isPasswordVisible;
                     });
-                  }, icon: Icon(
+                  },
+                    icon: Icon(
                     isPasswordVisible ?Icons.visibility :Icons.visibility_off,
                     color :AppColors.white,
                   ),),
+
                 ),
 
                 Align(
                   alignment: Alignment.centerRight,
-                  child: TextButton(onPressed: (){},
+                  child: TextButton(onPressed: (){
+                    Navigator.pushNamed(context, AppRoutes.resetPasswordScreen,);
+
+                  },
                     child: Text(AppString.forgetenpaword,style: AppTextStyle.regular14yellow,),),
                 ),
 

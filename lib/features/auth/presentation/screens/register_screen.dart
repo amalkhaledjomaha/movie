@@ -6,6 +6,7 @@ import 'package:moviesproject/core/constants/app_assets.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/constants/app_string.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
+import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/features/auth/presentation/screens/update_profile_screen.dart';
 import 'package:moviesproject/features/auth/presentation/widgets/avatarcarousel.dart';
 
@@ -138,7 +139,10 @@ class _RegisterScreenState extends State<RegisterScreen>
                             text:AppString.login,
                             style:AppTextStyle.regular14yellow,
                             recognizer: TapGestureRecognizer()
-                              ..onTap =(){}
+                              ..onTap =(){
+                                Navigator.of(context).pushNamed(AppRoutes.loginScreen);
+
+                              }
                         ),
                       ],
                     ),),
