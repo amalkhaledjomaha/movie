@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 class AppString {
+  //on boarding
   static const String findYourNextFavoriteMovie="Find Your Next\n Favorite Movie Here";
   static const String getAccessToHugeLibrary="Get access to a huge library of movies to suit all tastes. You will surely like it.";
 
@@ -58,4 +59,41 @@ class AppString {
   static const String deleteaccount="Delete Account";
   static const String updatedata="Update Data";
 
+  //Error Message
+  static const String emailisrequired="Email is required";
+  static const String enteravalidemail="Enter a valid email";
+  static const String  passwordisrequired="Password is required";
+  static const String passwordmustbeatleast6characters="Password must be at least 6 characters";
+
+  static const String  invalid_credential="invalid-credential";
+  static const String  emailorpasswordisincorrect="Email or password is incorrect";
+
+  static const String  user_not_found="user-not-found";
+  static const String  noaccountfoundwiththisemail="No account found with this email";
+
+  static const String  wrong_password="wrong-password";
+  static const String  incorrectPassword="Incorrect password";
+
+  static const String  invalid_email="invalid-email";
+  static const String  pleaseenteravalidemail="Please enter a valid email";
+
+  static const String  too_many_requests="too-many-requests";
+  static const String  too_many_attempts="Too many attempts. Please try again later.";
+
+  static const String  something_went_wrong="Something went wrong. Please try again.";
+
+  static const String  login_title="Login Failed";
+  static const String  ok="OK";
+
+  static const String  title_success="Success";
+  static const String  desc_Success=" Password reset link has been sent to your email.";
+
+  static const String  title_error="Reset Password Failed";
+
 }
+
+
+
+
+
+
