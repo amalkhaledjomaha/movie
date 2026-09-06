@@ -58,4 +58,78 @@ class AppString {
   static const String deleteaccount="Delete Account";
   static const String updatedata="Update Data";
 
+  //update
+  static const String nameisrequired = 'Name is required';
+  static const String namemustbeatleast3characters =
+      'Name must be at least 3 characters';
+
+
+
+  static const String confirmpasswordisrequired =
+      'Please confirm your password';
+  static const String passwordsdonotmatch = 'Passwords do not match';
+
+  static const String phoneisrequired = 'Phone is required';
+  static const String phonethan10 = 'phone must be at least 10 characters';
+
+  static const String invalidphone = 'Enter a valid phone number';
+
+  static const String accountupdated = 'Account updated successfully';
+  static const String updateerror = 'Failed to update account';
+
+  static const String deleteaccounttitle = 'Delete Account';
+  static const String deleteaccountmessage =
+      'Are you sure you want to delete your account?';
+  static const String cancel = 'Cancel';
+  static const String delete = 'Delete';
+
+  static const String loginagaintodelete =
+      'Please login again to delete your account';
+  static const String deleteerror = 'Failed to delete account';
+
+  //Error Message
+  static const String emailisrequired="Email is required";
+  static const String enteravalidemail="Enter a valid email";
+  static const String  passwordisrequired="Password is required";
+  static const String passwordmustbeatleast6characters="Password must be at least 6 characters";
+
+  static const String  invalid_credential="invalid-credential";
+  static const String  emailorpasswordisincorrect="Email or password is incorrect";
+
+  static const String  user_not_found="user-not-found";
+  static const String  noaccountfoundwiththisemail="No account found with this email";
+
+  static const String  wrong_password="wrong-password";
+  static const String  incorrectPassword="Incorrect password";
+
+  static const String  invalid_email="invalid-email";
+  static const String  pleaseenteravalidemail="Please enter a valid email";
+
+  static const String  too_many_requests="too-many-requests";
+  static const String  too_many_attempts="Too many attempts. Please try again later.";
+
+  static const String  something_went_wrong="Something went wrong. Please try again.";
+
+  static const String  login_title="Login Failed";
+  static const String  ok="OK";
+
+  static const String  title_success="Success";
+  static const String  desc_Success=" Password reset link has been sent to your email.";
+
+  static const String  title_error="Reset Password Failed";
+
+//regigster logic
+  static const String accountcreatedsuccessfully =
+      'Account created successfully';
+
+  static const String somethingwentwrong =
+      'Something went wrong';
+
+  static const weakpassword = 'The password is too weak';
+  static const emailalreadyinuse = 'This email is already registered';
+  static const invalidemail = 'The email address is not valid';
+  static const operationnotallowed =
+      'Email/Password authentication is not enabled';
+  static const networkrequestfailed =
+      'Please check your internet connection';
 }

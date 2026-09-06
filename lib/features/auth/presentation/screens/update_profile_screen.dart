@@ -103,10 +103,42 @@ class UpdateProfileScreen extends StatefulWidget{
         });
         await user.updateDisplayName(nameController.text.trim());
         if(!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(AppString.accountupdated),
-            ),
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              backgroundColor: AppColors.darkblack,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                    size: 60,
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    AppString.accountupdated,
+                    textAlign: TextAlign.center,
+                    style: AppTextStyle.regular20whitewithoutalpha,
+                  ),
+                  const SizedBox(height: 15),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      AppString.ok,
+                      style: AppTextStyle.regular16yellow,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         );
 
       }catch (e)

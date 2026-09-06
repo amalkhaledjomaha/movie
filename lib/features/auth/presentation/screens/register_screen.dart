@@ -25,7 +25,8 @@ class RegisterScreen extends StatefulWidget {
 }
 class _RegisterScreenState extends State<RegisterScreen>
   {
-    bool isPasswordVisible =false;
+    bool isPasswordVisible = false;
+    bool isConfirmPasswordVisible = false;
     bool isFlafSelected = true;
     bool isLoading =false;
     final GlobalKey<FormState> _formkey =GlobalKey<FormState>();
@@ -92,42 +93,32 @@ String selectedAvatar =AppAssets.avaterone;
           });
 
         if (!mounted) return;
-        showMessage('Account created successfully');
+        showMessage(AppString.accountcreatedsuccessfully);
 
-        Navigator.pushReplacement(
+        Navigator.pushNamedAndRemoveUntil(
           context,
-          MaterialPageRoute(
-            builder: (context) => const UpdateProfileScreen(),
-          ),
+          AppRoutes.homescreen,
+              (route) => false,
         );
       } on FirebaseAuthException catch(e) {
         String message;
 
-        switch (e.code) {
-          case 'weak-password':
-            message = 'The password is too weak';
-            break;
-
-          case 'email-already-in-use':
-            message = 'This email is already registered';
-            break;
-
-          case 'invalid-email':
-            message = 'The email address is not valid';
-            break;
-
-          case 'operation-not-allowed':
-            message = 'Email/Password authentication is not enabled';
-            break;
-
-          case 'network-request-failed':
-            message = 'Please check your internet connection';
-            break;
-
-          default:
-            message = e.message ?? 'Something went wrong';
+        String getErrorMessage(FirebaseAuthException e) {
+          switch (e.code) {
+            case 'weak-password':
+              return AppString.weakpassword;
+            case 'email-already-in-use':
+              return AppString.emailalreadyinuse;
+            case 'invalid-email':
+              return AppString.invalidemail;
+            case 'operation-not-allowed':
+              return AppString.operationnotallowed;
+            case 'network-request-failed':
+              return AppString.networkrequestfailed;
+            default:
+              return e.message ?? AppString.somethingwentwrong;
+          }
         }
-        showMessage(message);
       }
       catch(e){
           debugPrint('ERROR: $e');
@@ -143,13 +134,45 @@ String selectedAvatar =AppAssets.avaterone;
 
       }
 
-      void showMessage(String message)
-      {
-        ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message),
-      ),
+    Future<void> showMessage(String message) async {
+      await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: AppColors.darkblack,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.check_circle,
+                  color: Colors.green,
+                  size: 60,
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.regular16white,
+                ),
+                const SizedBox(height: 15),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'OK',
+                    style: AppTextStyle.regular16yellow,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       );
-      }
+    }
 
     @override
   Widget build(BuildContext context) {
@@ -270,7 +293,7 @@ return null;
                         controller: confirmPasswordController,
                         hintText: AppString.confirmpassword,
                         prefixIcon: AppAssets.Password,
-                        obscureText: !isPasswordVisible,
+                        obscureText: !isConfirmPasswordVisible,
 validator: (value) {
 if (value == null || value.isEmpty) {
 return AppString.confirmpassword;
@@ -284,10 +307,10 @@ return null;
 },
                         suffIcon: IconButton(onPressed: (){
                           setState(() {
-                            isPasswordVisible =!isPasswordVisible;
+                            isConfirmPasswordVisible =!isConfirmPasswordVisible;
                           });
                         }, icon: Icon(
-                          isPasswordVisible ?Icons.visibility :Icons.visibility_off,
+                          isConfirmPasswordVisible ?Icons.visibility :Icons.visibility_off,
                           color :AppColors.white,
                         ),),
                       ),
