@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/features/auth/presentation/screens/login_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/register_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/update_profile_screen.dart';
+import 'package:moviesproject/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'features/onboarding/presentation/screens/OnboardingContentPage.dart';
 import 'features/onboarding/presentation/screens/OnboardingFirstPage.dart';
@@ -15,6 +17,9 @@ Future<void> main() async {
 
   final bool onboardingSeen =
       prefs.getBool('onboardingSeen') ?? false;
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
 
   runApp(
     MyApp(

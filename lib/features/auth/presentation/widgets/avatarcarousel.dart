@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class AvatarCarousel extends StatefulWidget {
   final List<String> images;
+  final ValueChanged<String>? onAvatarSelected;
+
 
   const AvatarCarousel({
     super.key,
     required this.images,
+    this.onAvatarSelected,
+
   });
 
   @override
@@ -14,12 +18,13 @@ class AvatarCarousel extends StatefulWidget {
 
 class _AvatarCarouselState extends State<AvatarCarousel>{
  late PageController _pageController;
-
+ int selectedIndex = 1;
+@override
  void initState()
  {
    super.initState();
    _pageController =PageController(
-     initialPage: 1,
+     initialPage: selectedIndex,
      viewportFraction: 0.34,
    );
  }
@@ -36,6 +41,14 @@ class _AvatarCarouselState extends State<AvatarCarousel>{
        controller: _pageController,
          itemCount: widget.images.length,
          physics: const BouncingScrollPhysics(),
+         onPageChanged: (index){
+         setState(() {
+           selectedIndex = index;
+
+         });
+         widget.onAvatarSelected?.call(widget.images[index]);
+
+         },
          
          itemBuilder: (context,index)
      {

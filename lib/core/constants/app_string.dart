@@ -58,4 +58,39 @@ class AppString {
   static const String deleteaccount="Delete Account";
   static const String updatedata="Update Data";
 
+
+  //update
+  static const String nameisrequired = 'Name is required';
+  static const String namemustbeatleast3characters =
+      'Name must be at least 3 characters';
+
+  static const String emailisrequired = 'Email is required';
+  static const String enteravalidemail = 'Enter a valid email';
+
+  static const String passwordisrequired = 'Password is required';
+  static const String passwordmustbeatleast6characters =
+      'Password must be at least 6 characters';
+
+  static const String confirmpasswordisrequired =
+      'Please confirm your password';
+  static const String passwordsdonotmatch = 'Passwords do not match';
+
+  static const String phoneisrequired = 'Phone is required';
+  static const String phonethan10 = 'phone must be at least 10 characters';
+
+  static const String invalidphone = 'Enter a valid phone number';
+
+  static const String accountupdated = 'Account updated successfully';
+  static const String updateerror = 'Failed to update account';
+
+  static const String deleteaccounttitle = 'Delete Account';
+  static const String deleteaccountmessage =
+      'Are you sure you want to delete your account?';
+  static const String cancel = 'Cancel';
+  static const String delete = 'Delete';
+
+  static const String loginagaintodelete =
+      'Please login again to delete your account';
+  static const String deleteerror = 'Failed to delete account';
+
 }

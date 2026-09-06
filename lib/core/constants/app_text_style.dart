@@ -92,5 +92,11 @@ class AppTextStyle {
      color:AppColors.black,
    );
 
+
+   static final TextStyle regular16red = TextStyle(
+     fontSize:16,
+     fontWeight: FontWeight.w400,
+     color:AppColors.red,
+   );
  }
 
