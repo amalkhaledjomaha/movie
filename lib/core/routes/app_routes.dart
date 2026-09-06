@@ -6,5 +6,6 @@ class AppRoutes {
 
  static const String loginScreen = "LoginScreen";
  static const String registerScreen = "RegisterScreen";
+ static const String homescreen = "Homescreen";
  static const String updateProfileScreen = "UpdateProfileScreen";
 }

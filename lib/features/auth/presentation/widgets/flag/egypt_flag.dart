@@ -118,6 +118,7 @@ class EgyptFlagPainter extends CustomPainter{
     );
 
     eagle.close();
+    canvas.save();
     canvas.translate(centerX, centerY);
     canvas.scale(0.55, 0.55);
     canvas.translate(-centerX, -centerY);
