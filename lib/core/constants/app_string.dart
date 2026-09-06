@@ -89,7 +89,11 @@ class AppString {
   static const String  desc_Success=" Password reset link has been sent to your email.";
 
   static const String  title_error="Reset Password Failed";
-
+  //tabs
+  static const String  home="Home";
+  static const String  Search="Search";
+  static const String  Browse="Browse";
+  static const String  Profile="Profile";
 }
 
 
