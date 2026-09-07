@@ -1,4 +1,4 @@
-import '../../data/datasources/google_auth_data_source.dart';
+import '../datasources/google_auth_data_source.dart';
 import '../../domain/repositories/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -13,6 +13,8 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> loginWithGoogle() async {
     await googleAuthDataSource.signInWithGoogle();
+    await googleAuthDataSource.initialize();
+
   }
 
 }
