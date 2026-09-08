@@ -121,6 +121,11 @@ class AppString {
 //regigster logic
   static const String accountcreatedsuccessfully =
       'Account created successfully';
+  //tabs
+  static const String  home="Home";
+  static const String  Search="Search";
+  static const String  Browse="Browse";
+  static const String  Profile="Profile";
 
   static const String somethingwentwrong =
       'Something went wrong';

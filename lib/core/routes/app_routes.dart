@@ -8,4 +8,9 @@ class AppRoutes {
  static const String registerScreen = "RegisterScreen";
  static const String homescreen = "Homescreen";
  static const String updateProfileScreen = "UpdateProfileScreen";
+
+ static const String homeTab = 'home';
+ static const String searchTab = 'search';
+ static const String browseTab = 'browse';
+ static const String profileTab = 'profile';
 }

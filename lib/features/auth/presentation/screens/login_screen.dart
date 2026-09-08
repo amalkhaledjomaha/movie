@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/core/constants/app_assets.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
@@ -13,6 +14,12 @@ import 'package:moviesproject/features/auth/presentation/widgets/flag/egypt_flag
 import 'package:moviesproject/features/auth/presentation/widgets/flag/liberia_flag.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
+import '../bloc/auth_bloc.dart';
+import '../bloc/auth_event.dart';
+import '../../data/datasources/google_auth_data_source.dart';
+import '../../data/repositories/auth_repository_impl.dart';
+import '../../domain/usecases/login_with_google_usecase.dart';
+import '../bloc/auth_state.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -28,8 +35,35 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.darkblack,
+    return BlocProvider(
+        create: (_) => AuthBloc(
+          loginWithGoogleUseCase: LoginWithGoogleUseCase(
+            repository: AuthRepositoryImpl(
+              googleAuthDataSource: GoogleAuthDataSource(
+                firebaseAuth: FirebaseAuth.instance,
+              ),
+            ),
+          ),
+        ),
+        child: BlocListener<AuthBloc, AuthState>(
+          listener: (context, state) {
+
+            if (state is AuthSuccess) {
+              Navigator.of(context).pushReplacementNamed(
+                AppRoutes.homescreen,
+              );
+            }
+
+            if (state is AuthFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                ),
+              );
+            }
+          },
+        child: Scaffold(
+          backgroundColor: AppColors.darkblack,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -248,7 +282,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: double.infinity,
                         height: 55,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.read<AuthBloc>().add(
+                              GoogleLoginEvent(),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.yellow,
                             foregroundColor: AppColors.darkblack,
@@ -360,6 +398,8 @@ class _LoginScreenState extends State<LoginScreen> {
           // ),
         ),
       ),
+        ),
+            ),
     );
   }
 }

@@ -28,6 +28,10 @@ static const String Forgot_password="assets/images/Forgot_password.png";
   static const String avatereight ="assets/images/avatereight.png";
   static const String avaternine ="assets/images/avaternine.png";
 
-
+  // tabs
+  static const String home ="assets/images/home.svg";
+  static const String browse ="assets/images/browse.svg";
+  static const String Profiel ="assets/images/Profiel.svg";
+  static const String search ="assets/images/search.svg";
 
 }
