@@ -28,22 +28,6 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.darkblack,
-      //مش مطلوب
-      appBar: AppBar(
-        title: const Text("Move App ", style: TextStyle(color: Colors.white)),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                AppRoutes.loginScreen,
-                (route) => false,
-              );
-            },
-            icon: Icon(Icons.login_sharp),
-          ),
-        ],
-      ),
 
       body:tabs[selectedIndex],
       bottomNavigationBar: CustomBottomNavBar(

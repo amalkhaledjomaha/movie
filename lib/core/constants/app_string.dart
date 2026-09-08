@@ -137,4 +137,13 @@ class AppString {
       'Email/Password authentication is not enabled';
   static const networkrequestfailed =
       'Please check your internet connection';
+
+  static const watchnow =
+      'Watch Now';
+
+  static const action =
+      'Action';
+  static const seemore = 'See More →';
+  static const availablenow = 'Available Now';
+
 }

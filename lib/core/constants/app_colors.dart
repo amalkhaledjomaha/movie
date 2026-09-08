@@ -23,4 +23,18 @@ class AppColors {
   static const Color redlight= Color(0xFFE4002B);
   static const Color darkblue= Color(0xFF002868);
   static const Color gold= Color(0xFFFFA800);
+  static const Color blacklight= Color(0xFF080909);
+
+  static const Color blackgray= Color(0xFF202222);
+  static const Color gray27= Color(0xFF252727);
+  static const Color white24= Colors.white24;
+  static  Color blackopacity15= Colors.black.withOpacity(0.15);
+  static  Color blackopacity25=  Colors.black.withOpacity(0.25);
+  static  Color transport=  Colors.transparent;
+
+  static  Color whiteopacity45=  Colors.white.withOpacity(0.45);
+  static  Color blackopacity65=  Colors.black.withOpacity(0.65);
+
+
+
 }

@@ -1,6 +1,7 @@
  import 'dart:ui';
  import 'package:flutter/material.dart';
 import 'app_colors.dart';
+ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
    static final TextStyle medium36white = TextStyle(
@@ -98,5 +99,44 @@ class AppTextStyle {
      fontWeight: FontWeight.w400,
      color:AppColors.red,
    );
+
+   static final TextStyle pacifio57white = GoogleFonts.pacifico(
+   color: AppColors.white,
+   fontSize: 57,
+   height: 1,
+   );
+
+   static final TextStyle bold14white = GoogleFonts.pacifico(
+     color:AppColors.white,
+     fontSize: 14,
+     fontWeight: FontWeight.bold,
+
+   );
+
+   static final TextStyle regular11white = TextStyle(
+     fontSize:11,
+     fontWeight: FontWeight.w400,
+     color:AppColors.whiteopacity45,
+
+   );
+
+   static final TextStyle  bold12white = TextStyle(
+     color: AppColors.white,
+     fontSize: 12,
+     fontWeight: FontWeight.bold,
+   );
+
+   static final TextStyle bold18white = TextStyle(
+     color: AppColors.white,
+     fontSize: 18,
+     fontWeight: FontWeight.bold,
+   );
+   static final TextStyle pacifio45white = GoogleFonts.pacifico(
+     color: AppColors.white,
+     fontSize: 45,
+     height: 1,
+
+   );
+
  }
 
