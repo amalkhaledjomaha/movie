@@ -59,10 +59,10 @@ class MyApp extends StatelessWidget {
        AppRoutes.homescreen: (_) =>  Homescreen(),
        AppRoutes.updateProfileScreen: (_) =>  UpdateProfileScreen(),
        //tabs
-       AppRoutes.homeTab: (context) =>  Hometab(),
-       AppRoutes.searchTab: (context) =>  SearchTab(),
-       AppRoutes.browseTab: (context) =>  BrowseTab(),
-       AppRoutes.profileTab: (context) =>  ProfileTab(),
+       //AppRoutes.homeTab: (context) =>  Hometab(),
+       //AppRoutes.searchTab: (context) =>  SearchTab(),
+      // AppRoutes.browseTab: (context) =>  BrowseTab(),
+      // AppRoutes.profileTab: (context) =>  ProfileTab(),
      },
       initialRoute: onboardingSeen
           ? FirebaseAuth.instance.currentUser==null ?AppRoutes.loginScreen:AppRoutes.homescreen

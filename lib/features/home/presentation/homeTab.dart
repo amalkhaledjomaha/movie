@@ -10,21 +10,24 @@ import 'package:moviesproject/features/home/widgets/featured_movies.dart';
 import 'package:moviesproject/features/home/widgets/movie_section.dart';
 import 'package:moviesproject/features/home/widgets/featured_loading.dart';
 import 'package:moviesproject/features/home/widgets/section_loading.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Hometab extends StatefulWidget  {
-  const Hometab({super.key});
+  final String genre;
+  const Hometab({
+    super.key,
+    required this.genre,
+  });
 
 
   @override
-  State<Hometab> createState() => _HometabState();
+  State<Hometab> createState() => HometabState();
 }
 
-class _HometabState extends State<Hometab> {
+class HometabState extends State<Hometab> {
   final MovieService _movieService = MovieService();
 
   late Future<List<Movie>> _moviesFuture;
-  late Future<List<Movie>> _actionMoviesFuture;
+  late Future<List<Movie>> _genreMoviesFuture;
 
   int _currentMovie = 0;
 
@@ -33,19 +36,27 @@ class _HometabState extends State<Hometab> {
     super.initState();
     _loadMovies();
   }
-
+@override
+void didUpdateWidget(covariant Hometab oldWidget) {
+    super.didUpdateWidget(oldWidget);
+   if (oldWidget.genre != widget.genre)
+   { _loadGenreMovies();
+   } }
   void _loadMovies() {
     _moviesFuture = _movieService.getMovies(
       limit: 10,
-      sortBy: 'rating',
+      sortBy: 'date_added',
     );
+    _loadGenreMovies();
 
-    _actionMoviesFuture = _movieService.getMovies(
-      genre: 'action',
-      limit: 20,
-      sortBy: 'rating',
-    );
   }
+    void _loadGenreMovies() {
+      _genreMoviesFuture = _movieService.getMovies(
+        genre: widget.genre,
+        limit: 20,
+        sortBy: 'date_added', );
+    }
+
 
   Future<void> _refresh() async {
     setState(() {
@@ -54,9 +65,10 @@ class _HometabState extends State<Hometab> {
 
     await Future.wait([
       _moviesFuture,
-      _actionMoviesFuture,
+      _genreMoviesFuture,
     ]);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +129,13 @@ class _HometabState extends State<Hometab> {
                 const SizedBox(height: 15),
 
                 FutureBuilder<List<Movie>>(
-                  future: _actionMoviesFuture,
+                  future: _genreMoviesFuture,
 
                   builder: (context, snapshot) {
                     if (snapshot.connectionState ==
                         ConnectionState.waiting) {
                       return  SectionLoading(
-                        title:AppString.action ,
+                        title:widget.genre,
                       );
                     }
 
@@ -134,7 +146,7 @@ class _HometabState extends State<Hometab> {
                     }
 
                     return MovieSection(
-                      title: AppString.action,
+                      title: widget.genre,
                       movies: snapshot.data!,
                     );
                   },

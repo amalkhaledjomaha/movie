@@ -11,7 +11,7 @@ class MovieService {
   Future<List<Movie>> getMovies({
     String? genre,
     int limit = 20,
-    String sortBy = 'rating',
+    String sortBy = 'date_added',
   }) async {
     final queryParameters = {
       'limit': limit.toString(),
@@ -35,8 +35,7 @@ class MovieService {
 
     final Map<String, dynamic> data = jsonDecode(response.body);
 
-    final List moviesJson =
-        data['data']?['movies'] ?? [];
+    final List moviesJson = data['data']?['movies'] ?? [];
 
     return moviesJson
         .map((movie) => Movie.fromJson(movie))

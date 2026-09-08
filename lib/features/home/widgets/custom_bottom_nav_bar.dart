@@ -14,7 +14,7 @@ class CustomBottomNavBar extends StatelessWidget {
     required this.onTap,
   });
 
-  @override
+
   @override
   Widget build(BuildContext context) {
     return Container(
