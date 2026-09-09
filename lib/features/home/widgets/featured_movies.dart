@@ -71,7 +71,7 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
                 children: [
 
                   Image.network(
-                    currentMovie.backgroundImage,
+                    currentMovie.mediumCoverImage,
 
                     fit: BoxFit.cover,
 
