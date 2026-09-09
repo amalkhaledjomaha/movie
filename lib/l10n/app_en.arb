@@ -1,0 +1,128 @@
+{
+  "findYourNextFavoriteMovie": "Find Your Next\nFavorite Movie Here",
+  "getAccessToHugeLibrary": "Get access to a huge library of movies to suit all tastes. You will surely like it.",
+
+  "discoverMovies": "Discover Movies",
+  "discoverMoviesDescription": "Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.",
+
+  "exploreAllGenres": "Explore All Genres",
+  "exploreAllGenresDescription": "Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.",
+
+  "createWatchlists": "Create Watchlists",
+  "createWatchlistsDescription": "Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.",
+
+  "rateReviewAndLearn": "Rate, Review, and Learn",
+  "rateReviewAndLearnDescription": "Share your thoughts on the movies you've watched. Dive deep into film details and help others discover great movies through your reviews.",
+
+  "startWatchingNow": "Start Watching Now",
+  "startWatchingNowDescription": "Share your thoughts on the movies you've watched. Dive deep into film details and help others discover great movies through your reviews.",
+
+  "next": "Next",
+  "back": "Back",
+  "finish": "Finish",
+  "exploreNow": "Explore Now",
+
+  "email": "Email",
+  "verifyEmail": "Verify Email",
+  "forgetPassword": "Forget Password",
+
+  "password": "Password",
+  "forgetenpaword": "Forget Password ?",
+  "login": "Login",
+  "donthaveaccount": "Don’t Have Account ?",
+  "createone": "Create One",
+  "or": "OR",
+  "loginwithgoogle": "Login With Google",
+
+  "register": "Register",
+  "name": "Name",
+  "confirmpassword": "Confirm Password",
+  "phonenumber": "Phone Number",
+  "createaccount": "Create Account",
+  "alreadyhaveaccount": "Already Have Account ?",
+
+  "pickavatar": "Pick Avatar",
+  "johnsafwat": "John Safwat",
+  "resetpassword": "Reset Password",
+  "deleteaccount": "Delete Account",
+  "updatedata": "Update Data",
+
+  "nameisrequired": "Name is required",
+  "namemustbeatleast3characters": "Name must be at least 3 characters",
+
+  "confirmpasswordisrequired": "Please confirm your password",
+  "passwordsdonotmatch": "Passwords do not match",
+
+  "phoneisrequired": "Phone is required",
+  "phonethan10": "Phone must be at least 10 characters",
+  "invalidphone": "Enter a valid phone number",
+
+  "accountupdated": "Account updated successfully",
+  "updateerror": "Failed to update account",
+
+  "deleteaccounttitle": "Delete Account",
+  "deleteaccountmessage": "Are you sure you want to delete your account?",
+  "cancel": "Cancel",
+  "delete": "Delete",
+
+  "loginagaintodelete": "Please login again to delete your account",
+  "deleteerror": "Failed to delete account",
+
+  "emailisrequired": "Email is required",
+  "enteravalidemail": "Enter a valid email",
+  "passwordisrequired": "Password is required",
+  "passwordmustbeatleast6characters": "Password must be at least 6 characters",
+
+  "invalid_credential": "invalid-credential",
+  "emailorpasswordisincorrect": "Email or password is incorrect",
+
+  "user_not_found": "user-not-found",
+  "noaccountfoundwiththisemail": "No account found with this email",
+
+  "wrong_password": "wrong-password",
+  "incorrectPassword": "Incorrect password",
+
+  "invalid_email": "invalid-email",
+  "pleaseenteravalidemail": "Please enter a valid email",
+
+  "too_many_requests": "too-many-requests",
+  "too_many_attempts": "Too many attempts. Please try again later.",
+
+  "something_went_wrong": "Something went wrong. Please try again.",
+
+  "login_title": "Login Failed",
+  "ok": "OK",
+
+  "title_success": "Success",
+  "desc_Success": "Password reset link has been sent to your email.",
+  "title_error": "Reset Password Failed",
+
+  "accountcreatedsuccessfully": "Account created successfully",
+
+  "home": "Home",
+  "search": "Search",
+  "browse": "Browse",
+  "profile": "Profile",
+
+  "somethingwentwrong": "Something went wrong",
+
+  "weakpassword": "The password is too weak",
+  "emailalreadyinuse": "This email is already registered",
+  "invalidemail": "The email address is not valid",
+  "operationnotallowed": "Email/Password authentication is not enabled",
+  "networkrequestfailed": "Please check your internet connection",
+
+  "watchnow": "Watch Now",
+  "action": "Action",
+  "seemore": "See More →",
+  "availablenow": "Available Now",
+  "action": "Action",
+    "romance": "Romance",
+    "comedy": "Comedy",
+    "horror": "Horror",
+    "thriller": "Thriller",
+    "sciFi": "Sci-Fi",
+     "movieapp": "Movie App"
+
+
+}
