@@ -3,6 +3,7 @@ import 'package:moviesproject/core/constants/app_assets.dart';
 import 'package:moviesproject/core/constants/app_string.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
@@ -51,13 +52,13 @@ class Onboardingfirstpage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  AppString.findYourNextFavoriteMovie,
+                  AppLocalizations.of(context)!.findYourNextFavoriteMovie,
                   style: AppTextStyle.medium36white,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  AppString.getAccessToHugeLibrary,
+                  AppLocalizations.of(context)!.getAccessToHugeLibrary,
                   style: AppTextStyle.regular20white,
                 ),
                 SizedBox(height: 16),
@@ -72,7 +73,7 @@ class Onboardingfirstpage extends StatelessWidget {
                     minimumSize: const Size(double.infinity, 55),
                   ),
                   child: Text(
-                    AppString.exploreNow,
+                    AppLocalizations.of(context)!.exploreNow,
                     style: AppTextStyle.SemiBold20darkblack,
                   ),
                 ),

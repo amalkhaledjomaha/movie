@@ -120,14 +120,13 @@ class EgyptFlagPainter extends CustomPainter{
     eagle.close();
     canvas.save();
     canvas.translate(centerX, centerY);
-    canvas.scale(0.55, 0.55);
+    canvas.scale(0.45, 0.45);
     canvas.translate(-centerX, -centerY);
 
     canvas.drawPath(eagle, paint);
 
     canvas.restore();
 
-    canvas.drawPath(eagle, paint);
   }
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {

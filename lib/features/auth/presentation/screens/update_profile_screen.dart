@@ -15,6 +15,7 @@ import 'package:moviesproject/features/auth/presentation/widgets/avatarcarousel.
 
 import 'package:moviesproject/features/auth/presentation/widgets/custom_button .dart';
 import 'package:moviesproject/features/auth/presentation/widgets/customtextfield.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 class UpdateProfileScreen extends StatefulWidget{
   const UpdateProfileScreen({super.key});
@@ -121,7 +122,7 @@ class UpdateProfileScreen extends StatefulWidget{
                   ),
                   const SizedBox(height: 15),
                   Text(
-                    AppString.accountupdated,
+                    AppLocalizations.of(context)!.accountupdated,
                     textAlign: TextAlign.center,
                     style: AppTextStyle.regular20whitewithoutalpha,
                   ),
@@ -131,7 +132,7 @@ class UpdateProfileScreen extends StatefulWidget{
                       Navigator.pop(context);
                     },
                     child: Text(
-                      AppString.ok,
+                      AppLocalizations.of(context)!.ok,
                       style: AppTextStyle.regular16yellow,
                     ),
                   ),
@@ -145,7 +146,7 @@ class UpdateProfileScreen extends StatefulWidget{
         {
           if(!mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppString.updateerror),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateerror),
         ),
         );
         }finally{
@@ -166,10 +167,10 @@ class UpdateProfileScreen extends StatefulWidget{
         builder: (context){
           return AlertDialog(
             backgroundColor: AppColors.darkblack,
-            title: Text(AppString.deleteaccounttitle,style: AppTextStyle.regular20whitewithoutalpha,),
+            title: Text(AppLocalizations.of(context)!.deleteaccounttitle,style: AppTextStyle.regular20whitewithoutalpha,),
             content:
              Text(
-              AppString.deleteaccountmessage,
+               AppLocalizations.of(context)!.deleteaccountmessage,
               style: AppTextStyle.regular16white,
             ),
             actions: [
@@ -177,13 +178,13 @@ class UpdateProfileScreen extends StatefulWidget{
                 onPressed: (){
                   Navigator.pop(context, false);
                 },
-                child: Text(AppString.cancel,style: AppTextStyle.regular16white,
+                child: Text(AppLocalizations.of(context)!.cancel,style: AppTextStyle.regular16white,
                 ),
               ),
           TextButton(onPressed: (){
             Navigator.pop(context, true);
 
-          }, child: Text(AppString.delete,style: AppTextStyle.regular16red,
+          }, child: Text(AppLocalizations.of(context)!.delete,style: AppTextStyle.regular16red,
           ),)
             ],
 
@@ -284,7 +285,7 @@ class UpdateProfileScreen extends StatefulWidget{
             size: 32,
           ),),
         ),
-        title:Text( AppString.pickavatar,
+        title:Text( AppLocalizations.of(context)!.pickavatar,
           style: AppTextStyle.regular16yellow,
         ),),
       backgroundColor: AppColors.darkblack,
@@ -332,10 +333,10 @@ class UpdateProfileScreen extends StatefulWidget{
                           prefixIcon: AppAssets.User,
                       validator: (value){
                         if (value == null || value.trim().isEmpty) {
-                          return AppString.nameisrequired;
+                          return AppLocalizations.of(context)!.nameisrequired;
                         }
                         if (value.trim().length < 3) {
-                          return AppString.namemustbeatleast3characters; }
+                          return AppLocalizations.of(context)!.namemustbeatleast3characters; }
                         return null;
                       },),
 
@@ -347,13 +348,13 @@ class UpdateProfileScreen extends StatefulWidget{
                           prefixIcon: AppAssets.phone,
                       validator:(value) {
                 if (value == null || value.trim().isEmpty) {
-                return AppString.phoneisrequired;
+                return AppLocalizations.of(context)!.phoneisrequired;
                 }
                 if (value.length < 10) {
-                return AppString.phonethan10;
+                return AppLocalizations.of(context)!.phonethan10;
                 }
                 if (!RegExp(r'^[0-9]{10}$').hasMatch(value.trim())) {
-                  return AppString.invalidphone;
+                  return AppLocalizations.of(context)!.invalidphone;
                 }
                 return null;
                 },),
@@ -364,13 +365,13 @@ class UpdateProfileScreen extends StatefulWidget{
                         style: TextButton.styleFrom(overlayColor: Colors.transparent),onPressed: (){
                           Navigator.pushNamed(context, AppRoutes.resetPasswordScreen,);
                         },
-                          child: Text(AppString.resetpassword,style: AppTextStyle.regular20whitewithoutalpha,),),
+                          child: Text(AppLocalizations.of(context)!.resetpassword,style: AppTextStyle.regular20whitewithoutalpha,),),
                       ),
                       Spacer(),
-                      CustomButton(text: AppString.deleteaccount, onPressd:deleteAccount,backgroundColor :AppColors.red),
+                      CustomButton(text: AppLocalizations.of(context)!.deleteaccount, onPressd:deleteAccount,backgroundColor :AppColors.red),
                        SizedBox(height: 16),
                       CustomButton(text:isUpdating ?'Updating...'
-                          : AppString.updatedata, onPressd: isUpdating ?(){}
+                          : AppLocalizations.of(context)!.updatedata, onPressd: isUpdating ?(){}
                       :updateUserData,),
 
 

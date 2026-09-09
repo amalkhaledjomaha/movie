@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 import '../../../core/constants/app_string.dart';
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -11,7 +12,7 @@ class ProfileTab extends StatelessWidget {
     return  Scaffold(
       backgroundColor:AppColors.darkblack,
       appBar: AppBar(
-        title: const Text("Move App ", style: TextStyle(color: Colors.white)),
+        title:  Text(AppLocalizations.of(context)!.movieapp, style: TextStyle(color: Colors.white)),
         backgroundColor:AppColors.darkblack,
         actions: [
           //التعديل
@@ -43,7 +44,7 @@ class ProfileTab extends StatelessWidget {
 
       body: SizedBox(
           child:Center(
-            child:Text(AppString.Profile,style:TextStyle(color:Colors.red),) ,
+            child:Text( AppLocalizations.of(context)!.profile,style:TextStyle(color:Colors.red),) ,
           )
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -99,7 +100,7 @@ class Onboardingcontentpage extends StatelessWidget {
                       minimumSize: const Size(double.infinity, 55),
                     ),
                     child: Text(
-                      isLastPage ? AppString.finish :AppString.next,
+                      isLastPage ?  AppLocalizations.of(context)!.finish : AppLocalizations.of(context)!.next,
                       style: AppTextStyle.SemiBold20darkblack,
                     ),
                   ),
@@ -122,7 +123,7 @@ class Onboardingcontentpage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        AppString.back,
+                        AppLocalizations.of(context)!.back,
                         style: AppTextStyle.SemiBold20darkyellow,
                       ),
                     ),

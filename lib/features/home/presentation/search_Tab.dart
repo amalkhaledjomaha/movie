@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 import '../../../core/constants/app_string.dart';
 class SearchTab extends StatelessWidget {
   const SearchTab({super.key});
@@ -10,7 +11,7 @@ class SearchTab extends StatelessWidget {
       backgroundColor:AppColors.darkblack,
       body: SizedBox(
           child:Center(
-            child:Text(AppString.Search,style:TextStyle(color:Colors.red),) ,
+            child:Text( AppLocalizations.of(context)!.search,style:TextStyle(color:Colors.red),) ,
           )
       ),
     );

@@ -6,6 +6,7 @@ import 'package:moviesproject/core/constants/app_string.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
 
@@ -36,7 +37,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           color: AppColors.yellow,
         ),
         title: Text(
-          AppString.forgetPassword,
+          AppLocalizations.of(context)!.forgetPassword,
           style: AppTextStyle.regular16yellow,
         ),
         centerTitle: true,
@@ -63,11 +64,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   style: AppTextStyle.regular16white,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return AppString.emailisrequired;
+                      return AppLocalizations.of(context)!.emailisrequired;
                     }
 
                     if (!value.contains('@')) {
-                      return AppString.enteravalidemail;
+                      return AppLocalizations.of(context)!.enteravalidemail;
                     }
 
                     return null;
@@ -76,7 +77,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     filled: true,
                     fillColor: AppColors.black,
                     hint: Text(
-                      AppString.email,
+                      AppLocalizations.of(context)!.email,
                       style: AppTextStyle.regular16white,
                     ),
                     prefixIcon: Padding(
@@ -142,11 +143,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         dialogType: DialogType.success,
                         animType: AnimType.scale,
                         dialogBackgroundColor: AppColors.darkblack,
-                        title: AppString.title_success,
+                        title: AppLocalizations.of(context)!.title_success,
                         titleTextStyle: AppTextStyle.Bold24white,
-                        desc: AppString.desc_Success,
+                        desc: AppLocalizations.of(context)!.desc_Success,
                         descTextStyle: AppTextStyle.regular16white,
-                        btnOkText:AppString.ok,
+                        btnOkText:AppLocalizations.of(context)!.ok,
                         btnOkColor: AppColors.yellow,
                         btnOkOnPress: () {
                           Navigator.pop(context);
@@ -159,19 +160,19 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
                       switch (e.code) {
                         case AppString.invalid_email:
-                          message =AppString.pleaseenteravalidemail;
+                          message =AppLocalizations.of(context)!.pleaseenteravalidemail;
                           break;
 
                         case AppString.user_not_found:
-                          message =  AppString.noaccountfoundwiththisemail;
+                          message =  AppLocalizations.of(context)!.noaccountfoundwiththisemail;
                           break;
 
                         case  AppString.too_many_requests:
-                          message =AppString.too_many_attempts;
+                          message =AppLocalizations.of(context)!.too_many_attempts;
                           break;
 
                         default:
-                          message =AppString.something_went_wrong;
+                          message =AppLocalizations.of(context)!.something_went_wrong;
                       }
 
                       if (!mounted) return;
@@ -181,11 +182,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         dialogType: DialogType.error,
                         animType: AnimType.scale,
                         dialogBackgroundColor: AppColors.darkblack,
-                        title:AppString.title_error,
+                        title:AppLocalizations.of(context)!.title_error,
                         titleTextStyle: AppTextStyle.Bold24white,
                         desc: message,
                         descTextStyle: AppTextStyle.regular16white,
-                        btnOkText:AppString.ok,
+                        btnOkText:AppLocalizations.of(context)!.ok,
                         btnOkColor: AppColors.yellow,
                         btnOkOnPress: () {},
                       ).show();
@@ -196,7 +197,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15)),
                     minimumSize: const Size(double.infinity, 55),
                   ),
-                  child: Text(AppString.verifyEmail,style:AppTextStyle.regular20black,),
+                  child: Text(AppLocalizations.of(context)!.verifyEmail,style:AppTextStyle.regular20black,),
                 ),
               ),
             ],

@@ -6,6 +6,7 @@ import 'package:moviesproject/features/home/data/model/movie_model.dart';
 import 'package:moviesproject/features/home/widgets/featured_card.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 class FeaturedMovies extends StatefulWidget {
   final List<Movie> movies;
@@ -117,7 +118,7 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
 
             child: Center(
               child: Text(
-                AppString.availablenow,
+                AppLocalizations.of(context)!.availablenow,
                 style: AppTextStyle.pacifio45white,
               ),
             ),

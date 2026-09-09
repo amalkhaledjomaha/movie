@@ -13,6 +13,7 @@ import 'package:moviesproject/features/auth/presentation/widgets/customtextfield
 import 'package:moviesproject/features/auth/presentation/widgets/flag/egypt_flag.dart';
 import 'package:moviesproject/features/auth/presentation/widgets/flag/liberia_flag.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
@@ -20,8 +21,13 @@ import '../../data/datasources/google_auth_data_source.dart';
 import '../../data/repositories/auth_repository_impl.dart';
 import '../../domain/usecases/login_with_google_usecase.dart';
 import '../bloc/auth_state.dart';
+
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final Function(String) onLanguageChanged;
+
+  const LoginScreen({super.key,
+    required this.onLanguageChanged,
+  });
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -95,15 +101,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       SizedBox(height: screenHeight < 700 ? 30 : 45),
                       CustomTextField(
-                        hintText: AppString.email,
+                        hintText: AppLocalizations.of(context)!.email,
                         prefixIcon: AppAssets.Email,
                         controller: emailController,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppString.emailisrequired;
+                            return AppLocalizations.of(context)!.emailisrequired;
                           }
                           if (!value.contains('@')) {
-                            return AppString.enteravalidemail;
+                            return AppLocalizations.of(context)!.enteravalidemail;
                           }
 
                           return null;
@@ -111,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 20),
                       CustomTextField(
-                        hintText: AppString.password,
+                        hintText: AppLocalizations.of(context)!.password,
                         prefixIcon: AppAssets.Password,
                         obscureText: !isPasswordVisible,
                         suffIcon: IconButton(
@@ -130,11 +136,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: passwordController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppString.passwordisrequired;
+                            return AppLocalizations.of(context)!.passwordisrequired;
                           }
 
                           if (value.length < 6) {
-                            return AppString.passwordmustbeatleast6characters;
+                            return AppLocalizations.of(context)!.passwordmustbeatleast6characters;
                           }
 
                           return null;
@@ -151,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           },
                           child: Text(
-                            AppString.forgetenpaword,
+                            AppLocalizations.of(context)!.forgetenpaword,
                             style: AppTextStyle.regular14yellow,
                           ),
                         ),
@@ -160,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
 
                       CustomButton(
-                        text: AppString.login,
+                        text: AppLocalizations.of(context)!.login,
                         onPressd: () async {
                           if (!formKey.currentState!.validate()) {
                             return;
@@ -184,25 +190,25 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             switch (e.code) {
                               case AppString.invalid_credential :
-                                message = AppString.emailorpasswordisincorrect;
+                                message = AppLocalizations.of(context)!.emailorpasswordisincorrect;
                                 break;
 
                               case  AppString.user_not_found:
-                                message =AppString.noaccountfoundwiththisemail;
+                                message =AppLocalizations.of(context)!.noaccountfoundwiththisemail;
                                 break;
 
                               case AppString.wrong_password :
-                                message =AppString.incorrectPassword;
+                                message =AppLocalizations.of(context)!.incorrectPassword;
                                 break;
 
                               case AppString.invalid_email:
-                                message =AppString.pleaseenteravalidemail;
+                                message =AppLocalizations.of(context)!.pleaseenteravalidemail;
                                 break;
                               case AppString.too_many_requests :
-                                message =AppString.too_many_attempts ;
+                                message =AppLocalizations.of(context)!.too_many_attempts ;
                               default:
                                 message =
-                                    AppString. something_went_wrong;
+                                    AppLocalizations.of(context)!. something_went_wrong;
                             }
 
                             if (!mounted) return;
@@ -212,11 +218,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               dialogType: DialogType.error,
                               animType: AnimType.scale,
                               dialogBackgroundColor: AppColors.darkblack,
-                              title: AppString.login_title,
+                              title: AppLocalizations.of(context)!.login_title,
                               titleTextStyle: AppTextStyle.Bold24white,
                               desc: message,
                               descTextStyle: AppTextStyle.regular16white,
-                              btnOkText: AppString.ok,
+                              btnOkText: AppLocalizations.of(context)!.ok,
                               btnOkColor: AppColors.yellow,
                               btnOkOnPress: () {},
                             ).show();
@@ -227,11 +233,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 18),
                       RichText(
                         text: TextSpan(
-                          text: AppString.donthaveaccount,
+                          text: AppLocalizations.of(context)!.donthaveaccount,
                           style: AppTextStyle.regular14white,
                           children: [
                             TextSpan(
-                              text: AppString.createone,
+                              text: AppLocalizations.of(context)!.createone,
                               style: AppTextStyle.regular14yellow,
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
@@ -262,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 12),
                             child: Text(
-                              AppString.or,
+                              AppLocalizations.of(context)!.or,
                               style: AppTextStyle.regular14yellow,
                             ),
                           ),
@@ -301,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Text('G', style: AppTextStyle.Bold24black),
                               const SizedBox(width: 12),
                               Text(
-                                AppString.loginwithgoogle,
+                                AppLocalizations.of(context)!.loginwithgoogle,
                                 style: AppTextStyle.regular16black,
                               ),
                             ],
@@ -315,77 +321,90 @@ class _LoginScreenState extends State<LoginScreen> {
                           setState(() {
                             isFlafSelected = !isFlafSelected;
                           });
+
+                          if (isFlafSelected) {
+                            widget.onLanguageChanged('en');
+                          } else {
+                            widget.onLanguageChanged('ar');
+                          }
                         },
+
                         child: Container(
                           width: 90.72,
                           height: 38.08,
+
                           decoration: BoxDecoration(
                             color: AppColors.darkblack,
                             borderRadius: BorderRadius.circular(40),
+
                             border: Border.all(
                               color: AppColors.yellow,
                               width: 2,
                             ),
                           ),
+
                           child: Stack(
                             clipBehavior: Clip.none,
+
                             children: [
+
+                              // الدائرة الصفراء
                               AnimatedPositioned(
-                                duration: Duration(milliseconds: 200),
+                                duration: const Duration(milliseconds: 200),
+
                                 left: isFlafSelected ? -2 : null,
                                 right: isFlafSelected ? null : -2,
+
                                 top: -2,
+
                                 child: Container(
                                   width: 40.08,
                                   height: 38.08,
+
                                   decoration: BoxDecoration(
                                     color: AppColors.yellow,
                                     shape: BoxShape.circle,
                                   ),
                                 ),
                               ),
+
+                              // 🇱🇷 English
                               AnimatedPositioned(
-                                duration: Duration(milliseconds: 200),
+                                duration: const Duration(milliseconds: 200),
 
                                 left: isFlafSelected ? 1 : 7,
                                 top: isFlafSelected ? 1 : 7,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      isFlafSelected = true;
-                                    });
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    width: isFlafSelected ? 34 : 26,
-                                    height: isFlafSelected ? 34 : 26,
-                                    child: const LiberiaFlag(),
-                                  ),
+
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 200),
+
+                                  width: isFlafSelected ? 34 : 26,
+                                  height: isFlafSelected ? 34 : 26,
+
+                                  child: const LiberiaFlag(),
                                 ),
                               ),
+
+                              // 🇪🇬 عربي
                               AnimatedPositioned(
-                                duration: Duration(milliseconds: 200),
+                                duration: const Duration(milliseconds: 200),
 
                                 right: isFlafSelected ? 7 : 1,
                                 top: isFlafSelected ? 7 : 1,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      isFlafSelected = true;
-                                    });
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    width: isFlafSelected ? 26 : 34,
-                                    height: isFlafSelected ? 26 : 34,
-                                    child: const EgyptFlag(),
-                                  ),
+
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 200),
+
+                                  width: isFlafSelected ? 26 : 34,
+                                  height: isFlafSelected ? 26 : 34,
+
+                                  child: const EgyptFlag(),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),

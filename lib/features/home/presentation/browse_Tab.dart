@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 
 import '../../../core/constants/app_string.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
+
 class BrowseTab extends StatelessWidget {
   const BrowseTab({super.key});
 
@@ -11,7 +13,7 @@ class BrowseTab extends StatelessWidget {
       backgroundColor:AppColors.darkblack,
       body: SizedBox(
         child:Center(
-          child:Text(AppString.Browse,style:TextStyle(color:Colors.red),) ,
+          child:Text( AppLocalizations.of(context)!.browse,style:TextStyle(color:Colors.red),) ,
         )
       ),
     );

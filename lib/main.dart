@@ -5,6 +5,7 @@ import 'package:moviesproject/features/auth/presentation/screens/login_screen.da
 import 'package:moviesproject/features/auth/presentation/screens/register_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:moviesproject/features/auth/presentation/screens/update_profile_screen.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'features/home/presentation/browse_Tab.dart';
 import 'features/home/presentation/homeTab.dart';
@@ -30,10 +31,16 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final bool onboardingSeen;
   const MyApp({super.key,required this.onboardingSeen,});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp> {
 
+  Locale currentLocale = const Locale('en');
+  @override
   void initState() {
     FirebaseAuth.instance
         .authStateChanges()
@@ -45,17 +52,32 @@ class MyApp extends StatelessWidget {
       }
     });
   }
+
+  void changeLanguage(String languageCode) {
+    setState(() {
+      currentLocale = Locale(languageCode);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Movie',
       debugShowCheckedModeBanner:false,
 
+
+      locale: currentLocale,
+
+      localizationsDelegates:
+      AppLocalizations.localizationsDelegates,
+
+      supportedLocales:
+      AppLocalizations.supportedLocales,
      routes: {
        AppRoutes.resetPasswordScreen:(_)=>ResetPasswordScreen(),
        AppRoutes.onboardingScreen:(_)=>Onboardingscreen(),
-       AppRoutes.loginScreen: (_) =>  LoginScreen(),
-       AppRoutes.registerScreen: (_) =>  RegisterScreen(),
+       AppRoutes.loginScreen: (_) =>  LoginScreen( onLanguageChanged: changeLanguage,),
+       AppRoutes.registerScreen: (_) =>  RegisterScreen(  onLanguageChanged: changeLanguage,
+       ),
        AppRoutes.homescreen: (_) =>  Homescreen(),
        AppRoutes.updateProfileScreen: (_) =>  UpdateProfileScreen(),
        //tabs
@@ -64,7 +86,7 @@ class MyApp extends StatelessWidget {
       // AppRoutes.browseTab: (context) =>  BrowseTab(),
       // AppRoutes.profileTab: (context) =>  ProfileTab(),
      },
-      initialRoute: onboardingSeen
+      initialRoute: widget.onboardingSeen
           ? FirebaseAuth.instance.currentUser==null ?AppRoutes.loginScreen:AppRoutes.homescreen
           : AppRoutes.onboardingScreen,
     );

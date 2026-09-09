@@ -4,6 +4,7 @@ import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
 import 'package:moviesproject/features/home/widgets/movie_card.dart';
 import 'package:moviesproject/features/home/widgets/rating_badge.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 class MovieSection extends StatelessWidget {
   final String title;
   final List<Movie> movies;
@@ -42,7 +43,7 @@ class MovieSection extends StatelessWidget {
                 ),
 
                 child:  Text(
-                 AppString.seemore,
+                  AppLocalizations.of(context)!.seemore,
                   style: AppTextStyle.regular14yellow,
                 ),
               ),

@@ -123,9 +123,9 @@ class AppString {
       'Account created successfully';
   //tabs
   static const String  home="Home";
-  static const String  Search="Search";
-  static const String  Browse="Browse";
-  static const String  Profile="Profile";
+  static const String  search="Search";
+  static const String  browse="Browse";
+  static const String  profile="Profile";
 
   static const String somethingwentwrong =
       'Something went wrong';

@@ -10,12 +10,17 @@ import 'package:moviesproject/features/home/widgets/featured_movies.dart';
 import 'package:moviesproject/features/home/widgets/movie_section.dart';
 import 'package:moviesproject/features/home/widgets/featured_loading.dart';
 import 'package:moviesproject/features/home/widgets/section_loading.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 class Hometab extends StatefulWidget  {
   final String genre;
+  final String genreName;
+
   const Hometab({
     super.key,
     required this.genre,
+    required this.genreName,
+
   });
 
 
@@ -36,27 +41,32 @@ class HometabState extends State<Hometab> {
     super.initState();
     _loadMovies();
   }
-@override
-void didUpdateWidget(covariant Hometab oldWidget) {
+
+  @override
+  void didUpdateWidget(covariant Hometab oldWidget) {
     super.didUpdateWidget(oldWidget);
-   if (oldWidget.genre != widget.genre)
-   { _loadGenreMovies();
-   } }
+
+    if (oldWidget.genre != widget.genre) {
+      _loadGenreMovies();
+    }
+  }
+
   void _loadMovies() {
     _moviesFuture = _movieService.getMovies(
       limit: 10,
       sortBy: 'date_added',
     );
+
     _loadGenreMovies();
-
   }
-    void _loadGenreMovies() {
-      _genreMoviesFuture = _movieService.getMovies(
-        genre: widget.genre,
-        limit: 20,
-        sortBy: 'date_added', );
-    }
 
+  void _loadGenreMovies() {
+    _genreMoviesFuture = _movieService.getMovies(
+      genre: widget.genre,
+      limit: 20,
+      sortBy: 'date_added',
+    );
+  }
 
   Future<void> _refresh() async {
     setState(() {
@@ -69,9 +79,10 @@ void didUpdateWidget(covariant Hometab oldWidget) {
     ]);
   }
 
-
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: AppColors.blacklight,
 
@@ -116,17 +127,19 @@ void didUpdateWidget(covariant Hometab oldWidget) {
                   },
                 ),
 
-                 SizedBox(height: 40),
+                const SizedBox(height: 40),
 
-                 Center(
+
+                Center(
                   child: Text(
-                    AppString.watchnow,
-                    style:AppTextStyle.pacifio57white,
+                    localizations.watchnow,
+                    style: AppTextStyle.pacifio57white,
                   ),
-
                 ),
 
                 const SizedBox(height: 15),
+
+
 
                 FutureBuilder<List<Movie>>(
                   future: _genreMoviesFuture,
@@ -134,8 +147,8 @@ void didUpdateWidget(covariant Hometab oldWidget) {
                   builder: (context, snapshot) {
                     if (snapshot.connectionState ==
                         ConnectionState.waiting) {
-                      return  SectionLoading(
-                        title:widget.genre,
+                      return SectionLoading(
+                        title: widget.genreName,
                       );
                     }
 
@@ -146,7 +159,8 @@ void didUpdateWidget(covariant Hometab oldWidget) {
                     }
 
                     return MovieSection(
-                      title: widget.genre,
+                      title: widget.genreName,
+
                       movies: snapshot.data!,
                     );
                   },
