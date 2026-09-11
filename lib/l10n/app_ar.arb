@@ -1,0 +1,128 @@
+{
+  "findYourNextFavoriteMovie": "اكتشف فيلمك المفضل\nالقادم هنا",
+  "getAccessToHugeLibrary": "احصل على مكتبة ضخمة من الأفلام تناسب جميع الأذواق. بالتأكيد ستجد ما يعجبك.",
+
+  "discoverMovies": "اكتشف الأفلام",
+  "discoverMoviesDescription": "استكشف مجموعة ضخمة من الأفلام بجميع الجودات والأنواع. اعثر على فيلمك المفضل القادم بسهولة.",
+
+  "exploreAllGenres": "استكشف جميع الأنواع",
+  "exploreAllGenresDescription": "اكتشف أفلامًا من جميع الأنواع وبجميع الجودات المتاحة. اعثر كل يوم على شيء جديد وممتع لمشاهدته.",
+
+  "createWatchlists": "أنشئ قوائم المشاهدة",
+  "createWatchlistsDescription": "احفظ الأفلام في قائمة المشاهدة الخاصة بك لتتبع ما تريد مشاهدته لاحقًا. استمتع بالأفلام بمختلف الجودات والأنواع.",
+
+  "rateReviewAndLearn": "قيّم، راجع، وتعلّم",
+  "rateReviewAndLearnDescription": "شارك رأيك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال مراجعاتك.",
+
+  "startWatchingNow": "ابدأ المشاهدة الآن",
+  "startWatchingNowDescription": "شارك رأيك حول الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال مراجعاتك.",
+
+  "next": "التالي",
+  "back": "رجوع",
+  "finish": "إنهاء",
+  "exploreNow": "استكشف الآن",
+
+  "email": "البريد الإلكتروني",
+  "verifyEmail": "تأكيد البريد الإلكتروني",
+  "forgetPassword": "نسيت كلمة المرور",
+
+  "password": "كلمة المرور",
+  "forgetenpaword": "نسيت كلمة المرور ؟",
+  "login": "تسجيل الدخول",
+  "donthaveaccount": "ليس لديك حساب ؟",
+  "createone": "إنشاء حساب",
+  "or": "أو",
+  "loginwithgoogle": "تسجيل الدخول باستخدام Google",
+
+  "register": "إنشاء حساب",
+  "name": "الاسم",
+  "confirmpassword": "تأكيد كلمة المرور",
+  "phonenumber": "رقم الهاتف",
+  "createaccount": "إنشاء الحساب",
+  "alreadyhaveaccount": "لديك حساب بالفعل ؟",
+
+  "pickavatar": "اختر صورة شخصية",
+  "johnsafwat": "جون صفوت",
+  "resetpassword": "إعادة تعيين كلمة المرور",
+  "deleteaccount": "حذف الحساب",
+  "updatedata": "تحديث البيانات",
+
+  "nameisrequired": "الاسم مطلوب",
+  "namemustbeatleast3characters": "يجب أن يحتوي الاسم على 3 أحرف على الأقل",
+
+  "confirmpasswordisrequired": "يرجى تأكيد كلمة المرور",
+  "passwordsdonotmatch": "كلمتا المرور غير متطابقتين",
+
+  "phoneisrequired": "رقم الهاتف مطلوب",
+  "phonethan10": "يجب أن يحتوي رقم الهاتف على 10 أرقام على الأقل",
+  "invalidphone": "أدخل رقم هاتف صالح",
+
+  "accountupdated": "تم تحديث الحساب بنجاح",
+  "updateerror": "فشل تحديث الحساب",
+
+  "deleteaccounttitle": "حذف الحساب",
+  "deleteaccountmessage": "هل أنت متأكد من أنك تريد حذف حسابك؟",
+  "cancel": "إلغاء",
+  "delete": "حذف",
+
+  "loginagaintodelete": "يرجى تسجيل الدخول مرة أخرى لحذف حسابك",
+  "deleteerror": "فشل حذف الحساب",
+
+  "emailisrequired": "البريد الإلكتروني مطلوب",
+  "enteravalidemail": "أدخل بريدًا إلكترونيًا صالحًا",
+  "passwordisrequired": "كلمة المرور مطلوبة",
+  "passwordmustbeatleast6characters": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+
+  "invalid_credential": "invalid-credential",
+  "emailorpasswordisincorrect": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+
+  "user_not_found": "user-not-found",
+  "noaccountfoundwiththisemail": "لا يوجد حساب بهذا البريد الإلكتروني",
+
+  "wrong_password": "wrong-password",
+  "incorrectPassword": "كلمة المرور غير صحيحة",
+
+  "invalid_email": "invalid-email",
+  "pleaseenteravalidemail": "يرجى إدخال بريد إلكتروني صالح",
+
+  "too_many_requests": "too-many-requests",
+  "too_many_attempts": "عدد المحاولات كبير جدًا. يرجى المحاولة لاحقًا.",
+
+  "something_went_wrong": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+
+  "login_title": "فشل تسجيل الدخول",
+  "ok": "موافق",
+
+  "title_success": "نجاح",
+  "desc_Success": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني.",
+  "title_error": "فشل إعادة تعيين كلمة المرور",
+
+  "accountcreatedsuccessfully": "تم إنشاء الحساب بنجاح",
+
+  "home": "الرئيسية",
+  "search": "بحث",
+  "browse": "تصفح",
+  "profile": "الملف الشخصي",
+
+  "somethingwentwrong": "حدث خطأ ما",
+
+  "weakpassword": "كلمة المرور ضعيفة جدًا",
+  "emailalreadyinuse": "هذا البريد الإلكتروني مسجل بالفعل",
+  "invalidemail": "عنوان البريد الإلكتروني غير صالح",
+  "operationnotallowed": "المصادقة باستخدام البريد الإلكتروني وكلمة المرور غير مفعلة",
+  "networkrequestfailed": "يرجى التحقق من اتصالك بالإنترنت",
+
+  "watchnow": "شاهد الآن",
+  "action": "أكشن",
+  "seemore": "شاهد المزيد →",
+  "availablenow": "متاح الآن",
+
+  "action": "أكشن",
+    "romance": "رومانسي",
+    "comedy": "كوميدي",
+    "horror": "رعب",
+    "thriller": "إثارة",
+    "sciFi": "خيال علمي",
+     "movieapp" :"تطبيق الأفلام "
+
+}
