@@ -146,4 +146,16 @@ class AppString {
   static const seemore = 'See More →';
   static const availablenow = 'Available Now';
 
+
+
+  static const failedtoloadmovie = 'Failed to load movie';
+  static const retry = 'Retry';
+  static const nodescriptionavailable = 'No description available.';
+  static const cast = 'Cast';
+  static const genres = 'Genres';
+
+  static const nocastinformationavailable = 'No cast information available';
+  static const character = 'Character';
+  static const summary = 'Summary';
+
 }

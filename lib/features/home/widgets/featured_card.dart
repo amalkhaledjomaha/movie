@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
+import 'package:moviesproject/features/home/presentation/movie_details_page.dart';
 import 'package:moviesproject/features/home/widgets/rating_badge.dart';
 class FeaturedCard extends StatelessWidget {
   final Movie movie;
@@ -13,76 +14,92 @@ class FeaturedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
+    return InkWell(
+      borderRadius: BorderRadius.circular(17),
 
-      width: isCenter ? 200 : 165,
-      height: isCenter ? 360 : 320,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) {
+              return MovieDetailsPage(
+                movieId: movie.id,
+              );
+            },
+          ),
+        );
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
 
-      margin: const EdgeInsets.symmetric(
-        horizontal: 4,
-      ),
+        width: isCenter ? 200 : 165,
+        height: isCenter ? 360 : 320,
 
-      child: Stack(
-        children: [
+        margin: const EdgeInsets.symmetric(
+          horizontal: 4,
+        ),
 
-          // Poster
-          Positioned.fill(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(17),
+        child: Stack(
+          children: [
 
-              child: Image.network(
-                movie.mediumCoverImage,
+            // Poster
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(17),
 
-                fit: BoxFit.cover,
+                child: Image.network(
+                  movie.mediumCoverImage,
 
-                errorBuilder: (_, __, ___) {
-                  return Container(
-                    color: AppColors.gray27,
+                  fit: BoxFit.cover,
 
-                    child:  Icon(
-                      Icons.movie,
-                      color: AppColors.white24,
-                      size: 50,
-                    ),
-                  );
-                },
+                  errorBuilder: (_, __, ___) {
+                    return Container(
+                      color: AppColors.gray27,
+
+                      child:  Icon(
+                        Icons.movie,
+                        color: AppColors.white24,
+                        size: 50,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
 
-          // Dark gradient
-          Positioned.fill(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(17),
+            // Dark gradient
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(17),
 
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
 
-                    colors: [
-                     AppColors.blackopacity15,
-                      AppColors.transport,
-                      AppColors.blackopacity25,
-                    ],
+                      colors: [
+                       AppColors.blackopacity15,
+                        AppColors.transport,
+                        AppColors.blackopacity25,
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
 
-          // Rating
-          Positioned(
-            top: 8,
-            left: 8,
+            // Rating
+            Positioned(
+              top: 8,
+              left: 8,
 
-            child: RatingBadge(
-              rating: movie.rating,
+              child: RatingBadge(
+                rating: movie.rating,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
