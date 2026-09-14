@@ -11,6 +11,7 @@ import 'package:moviesproject/features/home/presentation/details/cast_section.da
 import 'package:moviesproject/features/home/presentation/details/details_section_title.dart';
 import 'package:moviesproject/features/home/presentation/details/genres_section.dart';
 import 'package:moviesproject/features/home/presentation/details/suggestion_grid.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 
 import 'details/film_cover.dart';
 import 'details/screen_shots.dart';
@@ -98,7 +99,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                     ),
 
                     Text(
-                      AppString.failedtoloadmovie,
+                      AppLocalizations.of(context)!.failedToLoadMovie,
                       style:
                       AppTextStyle.bold14white,
                     ),
@@ -119,7 +120,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       },
 
                       child: Text(
-                        AppString.retry,
+                        AppLocalizations.of(context)!.retry,
                       ),
                     ),
                   ],
@@ -181,11 +182,13 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
          ////
            FilmCover(movie: movie,),
 
-          Text(AppString.ScreenShots,style:AppTextStyle.Bold24white),
+          Text(AppLocalizations.of(context)!.screenshots,style:AppTextStyle.Bold24white),
           const SizedBox(height: 10),
           ScreenShots(screenshots: movie.screenshots),
           const SizedBox(height: 10),
-          Text(AppString.Similar,style:AppTextStyle.Bold24white),
+          Text(AppLocalizations.of(context)!.similar,style:AppTextStyle.Bold24white),
+          const SizedBox(height: 10),
+
           SuggestionGrid(suggestionsFuture: _suggestionsFuture,),
 
 
@@ -194,8 +197,8 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
           ),
 
 
-          const DetailsSectionTitle(
-            title: AppString.summary,
+           DetailsSectionTitle(
+            title: AppLocalizations.of(context)!.summary,
           ),
 
           const SizedBox(
@@ -205,7 +208,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
           Text(
               movie.description.isNotEmpty
                   ? movie.description
-                  : AppString.nodescriptionavailable,
+                  : AppLocalizations.of(context)!.noDescriptionAvailable,
 
               style:
               AppTextStyle.regular14white
@@ -221,7 +224,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
 
 
           DetailsSectionTitle(
-            title: AppString.cast,
+            title: AppLocalizations.of(context)!.cast,
           ),
 
           const SizedBox(
@@ -239,7 +242,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
 
 
           DetailsSectionTitle(
-            title: AppString.genres,
+            title: AppLocalizations.of(context)!.genres,
           ),
 
           const SizedBox(

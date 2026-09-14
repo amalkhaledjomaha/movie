@@ -153,8 +153,8 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
                       final difference =
                       (page - index).abs();
 
-                      scale = (1 - difference * 0.12)
-                          .clamp(0.82, 1.0);
+                      scale = (1 - difference * 0.30)
+                          .clamp(0.70, 1.0);
                     }
 
                     return Center(

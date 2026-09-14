@@ -286,4 +286,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get movieapp => 'تطبيق الأفلام ';
+
+  @override
+  String get failedToLoadMovie => 'فشل تحميل الفيلم';
+
+  @override
+  String get retry => 'إعادة المحاولة';
+
+  @override
+  String get noDescriptionAvailable => 'لا يوجد وصف متاح.';
+
+  @override
+  String get cast => 'طاقم التمثيل';
+
+  @override
+  String get genres => 'الأنواع';
+
+  @override
+  String get noCastInformationAvailable => 'لا توجد معلومات عن طاقم التمثيل';
+
+  @override
+  String get character => 'الشخصية';
+
+  @override
+  String get summary => 'الملخص';
+
+  @override
+  String get screenshots => 'لقطات الشاشة';
+
+  @override
+  String get similar => 'أفلام مشابهة';
+
+  @override
+  String get noScreenshotsAvailable => 'لا توجد لقطات شاشة متاحة';
 }

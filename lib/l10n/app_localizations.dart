@@ -652,6 +652,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Movie App'**
   String get movieapp;
+
+  /// No description provided for @failedToLoadMovie.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load movie'**
+  String get failedToLoadMovie;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @noDescriptionAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No description available.'**
+  String get noDescriptionAvailable;
+
+  /// No description provided for @cast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast'**
+  String get cast;
+
+  /// No description provided for @genres.
+  ///
+  /// In en, this message translates to:
+  /// **'Genres'**
+  String get genres;
+
+  /// No description provided for @noCastInformationAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No cast information available'**
+  String get noCastInformationAvailable;
+
+  /// No description provided for @character.
+  ///
+  /// In en, this message translates to:
+  /// **'Character'**
+  String get character;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @screenshots.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenshots'**
+  String get screenshots;
+
+  /// No description provided for @similar.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar'**
+  String get similar;
+
+  /// No description provided for @noScreenshotsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No screenshots available'**
+  String get noScreenshotsAvailable;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

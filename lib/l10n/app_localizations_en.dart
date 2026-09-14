@@ -286,4 +286,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get movieapp => 'Movie App';
+
+  @override
+  String get failedToLoadMovie => 'Failed to load movie';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get noDescriptionAvailable => 'No description available.';
+
+  @override
+  String get cast => 'Cast';
+
+  @override
+  String get genres => 'Genres';
+
+  @override
+  String get noCastInformationAvailable => 'No cast information available';
+
+  @override
+  String get character => 'Character';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get screenshots => 'Screenshots';
+
+  @override
+  String get similar => 'Similar';
+
+  @override
+  String get noScreenshotsAvailable => 'No screenshots available';
 }

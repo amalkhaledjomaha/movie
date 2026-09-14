@@ -123,6 +123,17 @@
     "horror": "رعب",
     "thriller": "إثارة",
     "sciFi": "خيال علمي",
-     "movieapp" :"تطبيق الأفلام "
+     "movieapp" :"تطبيق الأفلام ",
+       "failedToLoadMovie": "فشل تحميل الفيلم",
+       "retry": "إعادة المحاولة",
+       "noDescriptionAvailable": "لا يوجد وصف متاح.",
+       "cast": "طاقم التمثيل",
+       "genres": "الأنواع",
+       "noCastInformationAvailable": "لا توجد معلومات عن طاقم التمثيل",
+       "character": "الشخصية",
+       "summary": "الملخص",
+       "screenshots": "لقطات الشاشة",
+       "similar": "أفلام مشابهة",
+       "noScreenshotsAvailable": "لا توجد لقطات شاشة متاحة"
 
 }

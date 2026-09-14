@@ -94,17 +94,6 @@ class SuggestionCard extends StatelessWidget {
                 child: Row(
                   children: [
 
-                    const Icon(
-                      Icons.star,
-                      color:
-                      AppColors.gold,
-                      size: 9,
-                    ),
-
-                    const SizedBox(
-                      width: 2,
-                    ),
-
                     Text(
                       movie.rating
                           .toString(),
@@ -112,8 +101,18 @@ class SuggestionCard extends StatelessWidget {
                       style:
                       const TextStyle(
                         color: AppColors.white,
-                        fontSize: 7,
+                        fontSize: 16,
                       ),
+                    ),
+                    const SizedBox(
+                      width: 2,
+                    ),
+
+                    const Icon(
+                      Icons.star,
+                      color:
+                      AppColors.gold,
+                      size: 20,
                     ),
                   ],
                 ),

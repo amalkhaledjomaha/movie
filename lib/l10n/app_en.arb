@@ -122,7 +122,18 @@
     "horror": "Horror",
     "thriller": "Thriller",
     "sciFi": "Sci-Fi",
-     "movieapp": "Movie App"
+     "movieapp": "Movie App",
+      "failedToLoadMovie": "Failed to load movie",
+       "retry": "Retry",
+       "noDescriptionAvailable": "No description available.",
+       "cast": "Cast",
+       "genres": "Genres",
+       "noCastInformationAvailable": "No cast information available",
+       "character": "Character",
+       "summary": "Summary",
+       "screenshots": "Screenshots",
+       "similar": "Similar",
+       "noScreenshotsAvailable": "No screenshots available"
 
 
 }
