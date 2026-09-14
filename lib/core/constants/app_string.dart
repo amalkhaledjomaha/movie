@@ -140,6 +140,8 @@ class AppString {
 
   static const watchnow =
       'Watch Now';
+  static const watch=
+      'Watch';
 
   static const action =
       'Action';
@@ -157,5 +159,9 @@ class AppString {
   static const nocastinformationavailable = 'No cast information available';
   static const character = 'Character';
   static const summary = 'Summary';
+  static const ScreenShots = 'Screen Shots';
+  static const Similar = 'Similar';
+  static const No_screenshots = 'No screenshots available';
+
 
 }

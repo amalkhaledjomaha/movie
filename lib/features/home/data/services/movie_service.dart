@@ -10,8 +10,7 @@ class MovieService {
   static const String _baseUrl =
       'https://yts.gg/api/v2/list_movies.json';
   static const String _detailsUrl =
-      'https://yts.gg/api/v2/movie_details.json';
-
+      'https://movies-api.accel.li/api/v2/movie_details.json';
   static const String _suggestionsUrl =
       'https://yts.gg/api/v2/movie_suggestions.json';
 
@@ -59,6 +58,9 @@ class MovieService {
     ).replace(
       queryParameters: {
         'movie_id': movieId.toString(),
+        'with_cast':'true',
+        'with_images':'true',
+
       },
     );
 
@@ -81,11 +83,28 @@ class MovieService {
         'Movie details not found',
       );
     }
+
+    print('LIKE COUNT: ${movieJson['like_count']}');
+    print('HAS LIKE COUNT: ${movieJson.containsKey('like_count')}');
+
     print('MOVIE KEYS: ${movieJson.keys}');
     print('CAST: ${movieJson['cast']}');
+
+    final screenshotKeys = movieJson.keys
+        .where((key) => key.toString().contains('screenshot'))
+        .toList();
+
+    print('SCREENSHOT KEYS: $screenshotKeys');
+    movieJson.forEach((key, value) {
+      if (key.toString().toLowerCase().contains('screen')) {
+        print('SCREEN FIELD: $key = $value');
+      }
+    });
+
     return MovieDetails.fromJson(
       movieJson,
     );
+
   }
 
 

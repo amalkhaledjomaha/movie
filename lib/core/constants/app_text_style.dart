@@ -65,7 +65,11 @@ class AppTextStyle {
      color:AppColors.white,
    );
 
-
+   static final TextStyle  Bold20gray = TextStyle(
+     fontSize:20,
+     fontWeight: FontWeight.w700,
+     color:AppColors.grayfont,
+   );
 
 
    static final TextStyle regular14yellow = TextStyle(

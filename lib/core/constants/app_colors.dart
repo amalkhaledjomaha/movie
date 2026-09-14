@@ -35,6 +35,13 @@ class AppColors {
   static  Color whiteopacity45=  Colors.white.withOpacity(0.45);
   static  Color blackopacity65=  Colors.black.withOpacity(0.65);
 
+// Linear Gradient for Movie Cover
+  static const Color movieCoverGradientStart =
+  Color(0x33121312);
 
+  static const Color movieCoverGradientEnd =
+  Color(0xFF121312);
+
+  static const Color grayfont= Color(0xFFADADAD);
 
 }

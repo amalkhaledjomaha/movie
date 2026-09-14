@@ -12,6 +12,9 @@ import 'package:moviesproject/features/home/presentation/details/details_section
 import 'package:moviesproject/features/home/presentation/details/genres_section.dart';
 import 'package:moviesproject/features/home/presentation/details/suggestion_grid.dart';
 
+import 'details/film_cover.dart';
+import 'details/screen_shots.dart';
+
 
 class MovieDetailsPage extends StatefulWidget {
   final int movieId;
@@ -144,10 +147,10 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
       physics:
       const AlwaysScrollableScrollPhysics(),
 
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 8,
-      ),
+      // padding: const EdgeInsets.symmetric(
+      //   horizontal: 10,
+      //   vertical: 8,
+      // ),
 
       child: Column(
         crossAxisAlignment:
@@ -156,26 +159,33 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
         children: [
 
 
-          Align(
-            alignment:
-            Alignment.centerLeft,
+          // Align(
+          //   alignment:
+          //   Alignment.centerLeft,
+          //
+          //   child: IconButton(
+          //     padding: EdgeInsets.zero,
+          //
+          //     icon: const Icon(
+          //       Icons.arrow_back_ios_new,
+          //       color: AppColors.white,
+          //       size: 18,
+          //     ),
+          //
+          //     onPressed: () {
+          //       Navigator.pop(context);
+          //     },
+          //   ),
+          // ),
 
-            child: IconButton(
-              padding: EdgeInsets.zero,
+         ////
+           FilmCover(movie: movie,),
 
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                color: AppColors.white,
-                size: 18,
-              ),
-
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-
-
+          Text(AppString.ScreenShots,style:AppTextStyle.Bold24white),
+          const SizedBox(height: 10),
+          ScreenShots(screenshots: movie.screenshots),
+          const SizedBox(height: 10),
+          Text(AppString.Similar,style:AppTextStyle.Bold24white),
           SuggestionGrid(suggestionsFuture: _suggestionsFuture,),
 
 

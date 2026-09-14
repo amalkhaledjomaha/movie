@@ -4,6 +4,7 @@ class MovieDetails {
   final String titleLong;
   final int year;
   final double rating;
+  final int likeCount;
 
   final String mediumCoverImage;
   final String largeCoverImage;
@@ -11,9 +12,11 @@ class MovieDetails {
 
   final String description;
   final int runtime;
-
+  final String url;
   final List<String> genres;
   final List<CastMember> cast;
+
+  final List<String> screenshots;
 
   const MovieDetails({
     required this.id,
@@ -28,6 +31,9 @@ class MovieDetails {
     required this.runtime,
     required this.genres,
     required this.cast,
+    required this.likeCount,
+    required this.url,
+    required this.screenshots,
   });
 
   factory MovieDetails.fromJson(
@@ -43,6 +49,7 @@ class MovieDetails {
       year: json['year'] ?? 0,
 
       rating: (json['rating'] ?? 0).toDouble(),
+      likeCount: json['like_count'] ?? 0,
 
       mediumCoverImage:
       json['medium_cover_image'] ?? '',
@@ -68,10 +75,20 @@ class MovieDetails {
       (json['cast'] as List? ?? [])
           .map(
             (cast) => CastMember.fromJson(
-          cast,
+          cast as Map<String, dynamic>,
         ),
       )
           .toList(),
+
+
+
+      url: json['url'] ?? '',
+      screenshots: <String>[
+        json['medium_screenshot_image1'] ?? '',
+        json['medium_screenshot_image2'] ?? '',
+        json['medium_screenshot_image3'] ?? '',
+      ].where((image) => image.isNotEmpty).toList(),
+
     );
   }
 }
@@ -84,11 +101,15 @@ class CastMember {
   final String name;
   final String character;
   final String imageUrl;
+  final String imdbCode;
+
 
   const CastMember({
     required this.name,
     required this.character,
     required this.imageUrl,
+    required this.imdbCode,
+
   });
 
   factory CastMember.fromJson(
@@ -97,7 +118,8 @@ class CastMember {
     return CastMember(
       name: json['name'] ?? '',
       character: json['character_name'] ?? '',
-      imageUrl: json['url_medium_image'] ?? '',
+      imageUrl: json['url_small_image'] ?? '',
+      imdbCode: json['imdb_code'] ?? '',
     );
   }
 }

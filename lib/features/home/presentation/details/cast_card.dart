@@ -21,15 +21,15 @@ class CastCard extends StatelessWidget {
     return Container(
       width: double.infinity,
 
-      height: 43,
+      height: 107,
 
       margin:
       const EdgeInsets.only(
-        bottom: 5,
+        bottom: 8,
       ),
 
       padding:
-      const EdgeInsets.all(5),
+      const EdgeInsets.all(12),
 
       decoration:
       BoxDecoration(
@@ -38,7 +38,7 @@ class CastCard extends StatelessWidget {
 
         borderRadius:
         BorderRadius.circular(
-          7,
+          18,
         ),
       ),
 
@@ -49,7 +49,7 @@ class CastCard extends StatelessWidget {
           ClipRRect(
             borderRadius:
             BorderRadius.circular(
-              5,
+              10,
             ),
 
             child:
@@ -57,8 +57,8 @@ class CastCard extends StatelessWidget {
                 ? Image.network(
               actor.imageUrl,
 
-              width: 34,
-              height: 34,
+              width: 82,
+              height: 82,
 
               fit: BoxFit.cover,
 
@@ -74,7 +74,7 @@ class CastCard extends StatelessWidget {
 
 
           const SizedBox(
-            width: 7,
+            width: 12,
           ),
 
 
@@ -98,29 +98,25 @@ class CastCard extends StatelessWidget {
                   TextOverflow.ellipsis,
 
                   style:
-                  AppTextStyle.regular11white
-                      .copyWith(
-                    fontSize: 8,
-                  ),
+                  AppTextStyle.regular18white
+
                 ),
 
                 const SizedBox(
-                  height: 2,
+                  height: 5,
                 ),
 
                 Text(
                   '${AppString.character} : ${actor.character}',
 
-                  maxLines: 1,
+                  maxLines: 2,
 
                   overflow:
                   TextOverflow.ellipsis,
 
                   style:
-                  AppTextStyle.regular11white
-                      .copyWith(
-                    fontSize: 7.5,
-                  ),
+                  AppTextStyle.regular18white
+
                 ),
               ],
             ),
@@ -134,8 +130,8 @@ class CastCard extends StatelessWidget {
   Widget _personPlaceholder() {
 
     return Container(
-      width: 34,
-      height: 34,
+      width: 82,
+      height: 82,
 
       color:
       AppColors.blackgray,
@@ -144,7 +140,7 @@ class CastCard extends StatelessWidget {
         Icons.person,
         color:
         AppColors.white24,
-        size: 18,
+        size: 35,
       ),
     );
   }
