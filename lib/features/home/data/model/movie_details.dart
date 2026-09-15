@@ -17,6 +17,7 @@ class MovieDetails {
   final List<CastMember> cast;
 
   final List<String> screenshots;
+  final String ytTrailerCode;
 
   const MovieDetails({
     required this.id,
@@ -34,6 +35,7 @@ class MovieDetails {
     required this.likeCount,
     required this.url,
     required this.screenshots,
+    required this.ytTrailerCode,
   });
 
   factory MovieDetails.fromJson(
@@ -83,6 +85,7 @@ class MovieDetails {
 
 
       url: json['url'] ?? '',
+      ytTrailerCode: json['yt_trailer_code'] ?? '',
       screenshots: <String>[
         json['medium_screenshot_image1'] ?? '',
         json['medium_screenshot_image2'] ?? '',
