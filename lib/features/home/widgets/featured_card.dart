@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
+import 'package:moviesproject/features/home/data/services/history_service.dart';
 import 'package:moviesproject/features/home/presentation/movie_details_page.dart';
 import 'package:moviesproject/features/home/widgets/rating_badge.dart';
 class FeaturedCard extends StatelessWidget {
@@ -14,10 +15,14 @@ class FeaturedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HistoryService _historyService = HistoryService();
     return InkWell(
       borderRadius: BorderRadius.circular(17),
 
-      onTap: () {
+      onTap: () async {
+        await _historyService.addToHistory(movie.id);
+        if (!context.mounted) return;
+
         Navigator.push(
           context,
           MaterialPageRoute(

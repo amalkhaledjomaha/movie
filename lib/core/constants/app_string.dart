@@ -164,4 +164,15 @@ class AppString {
   static const No_screenshots = 'No screenshots available';
 
 
+  static const wishlist = 'Wish List';
+
+  static const history = 'History';
+
+  static const editprofile = 'Edit Profile';
+  static const exit = 'Exit';
+
+
+
+
+
 }

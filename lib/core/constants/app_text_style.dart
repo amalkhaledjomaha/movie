@@ -110,12 +110,12 @@ class AppTextStyle {
    height: 1,
    );
 
-   static final TextStyle bold14white = GoogleFonts.pacifico(
-     color:AppColors.white,
-     fontSize: 14,
-     fontWeight: FontWeight.bold,
-
-   );
+   // static final TextStyle bold14white = GoogleFonts.pacifico(
+   //   color:AppColors.white,
+   //   fontSize: 14,
+   //   fontWeight: FontWeight.bold,
+   //
+   // );
 
    static final TextStyle regular11white = TextStyle(
      fontSize:11,
@@ -142,5 +142,23 @@ class AppTextStyle {
 
    );
 
+
+   static final TextStyle bold20white = TextStyle(
+     fontSize:20,
+     fontWeight: FontWeight.bold,
+     color:AppColors.white,
+   );
+
+   static final TextStyle bold14white =TextStyle(
+     color:AppColors.white,
+     fontSize: 14,
+     fontWeight: FontWeight.bold,
+   );
+
+   static final TextStyle bold30white =TextStyle(
+     color:AppColors.white,
+     fontSize: 30,
+     fontWeight: FontWeight.bold,
+   );
  }
 

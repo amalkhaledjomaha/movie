@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
+import 'package:moviesproject/features/home/data/services/history_service.dart';
 import 'package:moviesproject/features/home/presentation/movie_details_page.dart';
 
 class SuggestionCard extends StatelessWidget {
@@ -15,10 +16,12 @@ class SuggestionCard extends StatelessWidget {
   Widget build(
       BuildContext context,
       ) {
-
+    final HistoryService _historyService = HistoryService();
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
+        await _historyService.addToHistory(movie.id);
 
+        if (!context.mounted) return;
         Navigator.push(
           context,
 
