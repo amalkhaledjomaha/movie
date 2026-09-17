@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:moviesproject/core/constants/app_colors.dart';
-import 'package:moviesproject/core/constants/app_string.dart';
+import 'package:moviesproject/features/home/presentation/movie_details_page.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
 import 'package:moviesproject/features/home/data/services/movie_service.dart';

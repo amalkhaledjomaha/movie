@@ -63,7 +63,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Movie',
       debugShowCheckedModeBanner:false,
-
+      theme:ThemeData(
+        brightness: Brightness.dark,
+      ),
 
       locale: currentLocale,
 

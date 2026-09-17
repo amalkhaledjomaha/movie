@@ -34,6 +34,6 @@ static const String Forgot_password="assets/images/Forgot_password.png";
   static const String Profiel ="assets/images/Profiel.svg";
   static const String search ="assets/images/search.svg";
   static const String  playing ="assets/images/playing.png";
-
+  static const String  emptylist ="assets/images/emptylist.png";
 
 }

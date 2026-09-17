@@ -46,7 +46,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: 'Home',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -58,7 +58,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: 'Search',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -70,7 +70,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: 'Browse',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -82,7 +82,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: 'Profile',
+            label: '',
           ),
         ],
       ),

@@ -16,6 +16,7 @@ class MovieService {
 
   Future<List<Movie>> getMovies({
     String? genre,
+    String? queryTerm,
     int limit = 20,
     String sortBy = 'date_added',
   }) async {
@@ -27,6 +28,10 @@ class MovieService {
 
     if (genre != null) {
       queryParameters['genre'] = genre;
+    }
+
+    if (queryTerm != null && queryTerm.trim().isNotEmpty) {
+      queryParameters['query_term'] = queryTerm.trim();
     }
 
     final uri = Uri.parse(_baseUrl).replace(
