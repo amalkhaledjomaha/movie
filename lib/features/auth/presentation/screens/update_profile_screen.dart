@@ -96,7 +96,7 @@ class UpdateProfileScreen extends StatefulWidget{
         isUpdating =true;
       });
       try{
-        await _firestore.collection('users').doc(user.uid).update({
+        await _firestore.collection('users').doc(user.uid).set({
           'name' :nameController.text.trim(),
           'phone' :phoneController.text.trim(),
           'avatar' :selectedAvatar

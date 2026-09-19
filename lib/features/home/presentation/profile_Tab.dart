@@ -105,7 +105,7 @@ builder: (context, snapshot) {
                         const SizedBox(height: 10),
 
                         Text(
-                          userName ??
+                          name ??
                               user?.displayName ??
                               '',
                           maxLines: 1,
