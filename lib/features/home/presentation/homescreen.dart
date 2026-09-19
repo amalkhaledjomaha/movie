@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
@@ -7,6 +8,10 @@ import 'package:moviesproject/features/home/presentation/profile_Tab.dart';
 import 'package:moviesproject/features/home/presentation/search_Tab.dart';
 import 'package:moviesproject/features/home/presentation/browse_Tab.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
+import 'package:moviesproject/features/home/presentation/watchList_Bloc/watchlist_bloc.dart';
+import '../data/repository/watchlist_repository.dart';
+import '../data/watchlist/watchlist_service.dart';
+import '../domain/usecase/get_watchlist_usecase.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +72,15 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+        create: (_) => WatchlistBloc(
+          GetWatchlistUseCase(
+            WatchlistRepository(
+              WatchlistService(),
+            ),
+          ),
+        )..add(GetWatchlistEvent()),
+        child: Scaffold(
       backgroundColor: AppColors.darkblack,
 
       body: IndexedStack(
@@ -104,8 +117,10 @@ class _HomescreenState extends State<Homescreen> {
           setState(() {
             selectedIndex = index;
           });
+
         },
       ),
+    )
     );
   }
 }

@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/core/constants/app_assets.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/constants/app_string.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
-
+import 'package:moviesproject/features/home/presentation/watchList_Bloc/watchlist_bloc.dart';
 import 'package:moviesproject/features/home/presentation/history_page.dart';
 import 'package:moviesproject/features/home/presentation/watch_list_page.dart';
 
@@ -126,9 +127,19 @@ builder: (context, snapshot) {
                       child: Column(
                         children: [
 
-                          Text(
-                            '12',
-                            style: AppTextStyle.bold30white,
+                          BlocBuilder<WatchlistBloc, WatchlistState>(
+                            builder: (context, state) {
+                              int watchlistCount = 0;
+
+                              if (state is WatchlistSuccess) {
+                                watchlistCount = state.movies.length;
+                              }
+
+                              return Text(
+                                '$watchlistCount',
+                                style: AppTextStyle.bold30white,
+                              );
+                            },
                           ),
 
                           const SizedBox(height: 8),
@@ -283,6 +294,9 @@ builder: (context, snapshot) {
                     setState(() {
                       selectedTab = 0;
                     });
+                    context.read<WatchlistBloc>().add(
+                        GetWatchlistEvent(),
+                    );
                   },
                   child: _buildProfileTab(
                     icon: Icons.list,
@@ -340,7 +354,7 @@ builder: (context, snapshot) {
           width: double.infinity,
           color: AppColors.darkblack,
           child: selectedTab == 0
-              ? const WatchListPage()
+              ?  WatchListPage()
               : HistoryPage(),
         ),
       ],

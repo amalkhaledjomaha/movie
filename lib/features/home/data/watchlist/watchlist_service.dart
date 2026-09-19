@@ -54,4 +54,39 @@ class WatchlistService {
 
     return document.exists;
   }
+
+  Stream<List<MovieDetails>> watchlistStream() {
+    return _watchlist.snapshots().map((snapshot) {
+      final movies = snapshot.docs.map((doc) {
+        final data = doc.data();
+
+        return MovieDetails(
+          id: data['id'] ?? 0,
+          title: data['title'] ?? '',
+          titleLong: data['title'] ?? '',
+          year: data['year'] ?? 0,
+          rating: (data['rating'] as num?)?.toDouble() ?? 0.0,
+
+          mediumCoverImage: data['mediumCoverImage'] ?? '',
+          largeCoverImage: data['largeCoverImage'] ?? '',
+          backgroundImage: data['backgroundImage'] ?? '',
+
+          description: '',
+          runtime: 0,
+          genres: [],
+          cast: [],
+          likeCount: 0,
+          url: '',
+          screenshots: [],
+          ytTrailerCode: '',
+        );
+      }).toList();
+
+      movies.sort(
+            (a, b) => b.rating.compareTo(a.rating),
+      );
+
+      return movies;
+    });
+  }
 }
