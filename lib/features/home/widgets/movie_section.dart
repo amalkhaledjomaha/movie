@@ -8,10 +8,14 @@ import 'package:moviesproject/l10n/app_localizations.dart';
 class MovieSection extends StatelessWidget {
   final String title;
   final List<Movie> movies;
+  final String genre;
+  final void Function(String genre)? onGenreSelected;
 
   const MovieSection({
     required this.title,
     required this.movies,
+    required this.genre,
+    this.onGenreSelected,
   });
 
   @override
@@ -35,7 +39,10 @@ class MovieSection extends StatelessWidget {
               const Spacer(),
 
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  onGenreSelected?.call(genre);
+
+                },
 
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
@@ -75,6 +82,8 @@ class MovieSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return MovieCard(
                 movie: movies[index],
+                onGenreSelected: onGenreSelected,
+
               );
             },
           ),

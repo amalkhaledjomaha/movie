@@ -5,10 +5,13 @@ import 'suggestion_card.dart';
 
 class SuggestionGrid extends StatelessWidget {
   final Future<List<Movie>> suggestionsFuture;
+  final void Function(String genre)? onGenreSelected;
 
   const SuggestionGrid({
     super.key,
     required this.suggestionsFuture,
+    this.onGenreSelected,
+
   });
 
   @override
@@ -59,6 +62,8 @@ class SuggestionGrid extends StatelessWidget {
 
             return SuggestionCard(
               movie: movie,
+              onGenreSelected: onGenreSelected,
+
             );
           },
         );

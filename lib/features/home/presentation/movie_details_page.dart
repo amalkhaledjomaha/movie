@@ -19,10 +19,14 @@ import 'details/screen_shots.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   final int movieId;
+  final void Function(String genre)? onGenreSelected;
+
 
   const MovieDetailsPage({
     super.key,
     required this.movieId,
+    this.onGenreSelected,
+
   });
 
   @override
@@ -189,7 +193,9 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
           Text(AppLocalizations.of(context)!.similar,style:AppTextStyle.Bold24white),
           const SizedBox(height: 10),
 
-          SuggestionGrid(suggestionsFuture: _suggestionsFuture,),
+          SuggestionGrid(suggestionsFuture: _suggestionsFuture,
+            onGenreSelected: widget.onGenreSelected,
+          ),
 
 
           const SizedBox(
@@ -251,6 +257,10 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
 
           GenresSection(
             genres: movie.genres,
+            onGenreTap: (genre) {
+
+              Navigator.pop(context, genre);
+            },
           ),
 
 

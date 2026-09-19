@@ -15,11 +15,13 @@ import 'package:moviesproject/l10n/app_localizations.dart';
 class Hometab extends StatefulWidget  {
   final String genre;
   final String genreName;
+  final void Function(String genre)? onGenreSelected;
 
   const Hometab({
     super.key,
     required this.genre,
     required this.genreName,
+    this.onGenreSelected,
 
   });
 
@@ -123,6 +125,9 @@ class HometabState extends State<Hometab> {
                           _currentMovie = index;
                         });
                       },
+
+                      onGenreSelected: widget.onGenreSelected,
+
                     );
                   },
                 ),
@@ -160,8 +165,11 @@ class HometabState extends State<Hometab> {
 
                     return MovieSection(
                       title: widget.genreName,
+                      genre: widget.genre,
 
                       movies: snapshot.data!,
+                      onGenreSelected: widget.onGenreSelected,
+
                     );
                   },
                 ),

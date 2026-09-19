@@ -7,9 +7,12 @@ import 'package:moviesproject/features/home/presentation/movie_details_page.dart
 class SuggestionCard extends StatelessWidget {
 
   final Movie movie;
+  final void Function(String genre)? onGenreSelected;
 
   const SuggestionCard({
     required this.movie,
+    this.onGenreSelected,
+
   });
 
   @override
@@ -22,18 +25,21 @@ class SuggestionCard extends StatelessWidget {
         await _historyService.addToHistory(movie.id);
 
         if (!context.mounted) return;
-        Navigator.push(
+
+        final selectedGenre = await Navigator.push<String>(
           context,
-
           MaterialPageRoute(
-            builder: (_) {
-
-              return MovieDetailsPage(
-                movieId: movie.id,
-              );
-            },
+            builder: (_) => MovieDetailsPage(
+              movieId: movie.id,
+              onGenreSelected: onGenreSelected,
+            ),
           ),
         );
+
+        // 3. استقبال الـ Genre المختار
+        if (selectedGenre != null) {
+          onGenreSelected?.call(selectedGenre);
+        }
       },
 
       child: ClipRRect(

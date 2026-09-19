@@ -7,10 +7,14 @@ import 'package:moviesproject/features/home/widgets/rating_badge.dart';
 class FeaturedCard extends StatelessWidget {
   final Movie movie;
   final bool isCenter;
+  final void Function(String genre)? onGenreSelected;
+
 
   const FeaturedCard({
     required this.movie,
     required this.isCenter,
+    this.onGenreSelected,
+
   });
 
   @override
@@ -21,18 +25,21 @@ class FeaturedCard extends StatelessWidget {
 
       onTap: () async {
         await _historyService.addToHistory(movie.id);
+
         if (!context.mounted) return;
 
-        Navigator.push(
+        final selectedGenre = await Navigator.push<String>(
           context,
           MaterialPageRoute(
-            builder: (_) {
-              return MovieDetailsPage(
-                movieId: movie.id,
-              );
-            },
+            builder: (_) => MovieDetailsPage(
+              movieId: movie.id,
+            ),
           ),
         );
+
+        if (selectedGenre != null) {
+          onGenreSelected?.call(selectedGenre);
+        }
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),

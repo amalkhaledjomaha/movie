@@ -12,12 +12,15 @@ class FeaturedMovies extends StatefulWidget {
   final List<Movie> movies;
   final int currentIndex;
   final Function(int) onChanged;
+  final void Function(String genre)? onGenreSelected;
 
   const FeaturedMovies({
     super.key,
     required this.movies,
     required this.currentIndex,
     required this.onChanged,
+    this.onGenreSelected,
+
   });
 
   @override
@@ -166,6 +169,8 @@ class _FeaturedMoviesState extends State<FeaturedMovies> {
 
                           isCenter:
                           index == widget.currentIndex,
+                          onGenreSelected: widget.onGenreSelected,
+
                         ),
                       ),
                     );

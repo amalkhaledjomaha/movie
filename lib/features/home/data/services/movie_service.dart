@@ -16,7 +16,7 @@ class MovieService {
 
   Future<List<Movie>> getMovies({
     String? genre,
-    int limit = 20,
+    int limit = 50,
     String sortBy = 'date_added',
   }) async {
     final queryParameters = {

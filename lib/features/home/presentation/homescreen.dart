@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
+import 'package:moviesproject/features/home/data/services/movie_service.dart';
 import 'package:moviesproject/features/home/presentation/profile_Tab.dart';
 import 'package:moviesproject/features/home/presentation/search_Tab.dart';
 import 'package:moviesproject/features/home/presentation/browse_Tab.dart';
@@ -31,17 +32,16 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   int selectedIndex = 0;
+
+  String? selectedBrowseGenre;
+
   int currentGenreIndex = 0;
 
-  final List<String> genres = [
-    'action',
-    'romance',
-    'comedy',
-    'horror',
-    'thriller',
-    'sci-fi',
-  ];
+  final MovieService _movieService = MovieService();
 
+  List<String> genres = [];
+
+  bool isLoadingGenres = true;
   // اسم النوع حسب اللغة
   String getGenreName(BuildContext context, String genre) {
     final localizations = AppLocalizations.of(context)!;
@@ -69,9 +69,57 @@ class _HomescreenState extends State<Homescreen> {
         return genre;
     }
   }
+// دالة Browse
+  void openBrowseWithGenre(String genre) {
+    setState(() {
+      selectedBrowseGenre = genre;
+      selectedIndex = 2;
+    });
+  }
+
+  //دالة gener
+  Future<void> _loadGenres() async {
+    try {
+      final movies = await _movieService.getMovies(
+        limit: 50,
+        sortBy: 'rating',
+      );
+
+      final Set<String> genreSet = {};
+
+      for (final movie in movies) {
+        genreSet.addAll(movie.genres);
+      }
+
+      setState(() {
+        genres = genreSet.toList();
+        isLoadingGenres = false;
+      });
+    } catch (e) {
+      setState(() {
+        isLoadingGenres = false;
+      });
+    }
+  }
 
   @override
+  void initState() {
+    super.initState();
+    _loadGenres();
+  }
+  @override
   Widget build(BuildContext context) {
+
+    if (isLoadingGenres || genres.isEmpty) {
+      return const Scaffold(
+        backgroundColor: AppColors.darkblack,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: AppColors.yellow,
+          ),
+        ),
+      );
+    }
     return BlocProvider(
         create: (_) => WatchlistBloc(
           GetWatchlistUseCase(
@@ -92,10 +140,15 @@ class _HomescreenState extends State<Homescreen> {
               context,
               genres[currentGenreIndex],
             ),
+            onGenreSelected: openBrowseWithGenre,
+
           ),
 
           const SearchTab(),
-          const BrowseTab(),
+           BrowseTab(
+            initialGenre: selectedBrowseGenre,
+
+          ),
           const ProfileTab(),
         ],
       ),
