@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/constants/app_text_style.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviesproject/features/home/data/services/history_service.dart';
 import 'package:moviesproject/features/home/presentation/search_bloc/search_bloc.dart';
 import 'package:moviesproject/features/home/presentation/search_bloc/search_event.dart';
 import 'package:moviesproject/features/home/presentation/search_bloc/search_state.dart';
@@ -30,6 +31,8 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
+    final HistoryService _historyService = HistoryService();
+
     return  Scaffold(
       backgroundColor:AppColors.darkblack,
       body: SafeArea(
@@ -135,7 +138,10 @@ class _SearchTabState extends State<SearchTab> {
                         final movie = state.movies[index];
 
                         return GestureDetector(
-                          onTap: () {
+                          onTap: () async {
+                            await _historyService.addToHistory(movie.id);
+
+                            if (!context.mounted) return;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
