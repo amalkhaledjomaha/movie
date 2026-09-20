@@ -10,20 +10,13 @@ import 'package:moviesproject/features/home/presentation/browse_Tab.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
 import 'package:moviesproject/features/home/presentation/search_bloc/search_bloc.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
-import 'package:moviesproject/features/home/presentation/homeTab.dart';
-import 'package:flutter/material.dart';
-import 'package:moviesproject/core/constants/app_colors.dart';
+
 import 'package:moviesproject/l10n/app_localizations.dart';
 
-import 'package:flutter/material.dart';
-import 'package:moviesproject/core/constants/app_colors.dart';
-import 'package:moviesproject/l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviesproject/features/home/data/services/movie_service.dart';
 import 'package:moviesproject/features/home/data/repository/movie_repository.dart';
 import 'package:moviesproject/features/home/domain/search_movie_usecase.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviesproject/features/home/data/services/movie_service.dart';
+
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -116,7 +109,13 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       backgroundColor: AppColors.darkblack,
 
-      body: IndexedStack(
+      body:  isLoadingGenres || genres.isEmpty
+          ? const Center(
+        child: CircularProgressIndicator(
+          color: AppColors.yellow,
+        ),
+      )
+          :IndexedStack(
         index: selectedIndex,
         children: [
           Hometab(

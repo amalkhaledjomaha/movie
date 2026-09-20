@@ -133,7 +133,11 @@
        "summary": "Summary",
        "screenshots": "Screenshots",
        "similar": "Similar",
-       "noScreenshotsAvailable": "No screenshots available"
+       "noScreenshotsAvailable": "No screenshots available",
+       "wishlist": "Wish List",
+       "history": "History",
+       "editprofile": "Edit Profile",
+       "exit": "Exit"
 
 
 }

@@ -718,6 +718,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No screenshots available'**
   String get noScreenshotsAvailable;
+
+  /// No description provided for @wishlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Wish List'**
+  String get wishlist;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @editprofile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editprofile;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

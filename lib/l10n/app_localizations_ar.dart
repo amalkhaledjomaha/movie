@@ -319,4 +319,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noScreenshotsAvailable => 'لا توجد لقطات شاشة متاحة';
+
+  @override
+  String get wishlist => 'قائمة المفضلة';
+
+  @override
+  String get history => 'السجل';
+
+  @override
+  String get editprofile => 'تعديل الملف الشخصي';
+
+  @override
+  String get exit => 'خروج';
 }

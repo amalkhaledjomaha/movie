@@ -21,7 +21,7 @@ class CastCard extends StatelessWidget {
     return Container(
       width: double.infinity,
 
-      height: 107,
+      height: 120,
 
       margin:
       const EdgeInsets.only(

@@ -13,6 +13,7 @@ import 'package:moviesproject/features/home/presentation/watch_list_page.dart';
 import 'package:moviesproject/features/home/data/repository/watchlist_repository.dart';
 import 'package:moviesproject/features/home/data/watchlist/watchlist_service.dart';
 import 'package:moviesproject/features/home/domain/usecase/get_watchlist_usecase.dart';
+import 'package:moviesproject/l10n/app_localizations.dart';
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
 
@@ -155,7 +156,7 @@ builder: (context, snapshot) {
                           const SizedBox(height: 8),
 
                           Text(
-                            AppString.wishlist,
+                            AppLocalizations.of(context)!.wishlist,
                             textAlign: TextAlign.center,
                             style: AppTextStyle.bold20white,
                           ),
@@ -192,7 +193,7 @@ builder: (context, snapshot) {
                           const SizedBox(height: 8),
 
                           Text(
-                            AppString.history,
+                            AppLocalizations.of(context)!.history,
                             textAlign: TextAlign.center,
                             style: AppTextStyle.bold20white,
                           ),
@@ -230,7 +231,7 @@ builder: (context, snapshot) {
                           ),
                         ),
                         child: Text(
-                          AppString.editprofile,
+                          AppLocalizations.of(context)!.editprofile,
                           style: AppTextStyle.regular20black,
                         ),
                       ),
@@ -267,7 +268,7 @@ builder: (context, snapshot) {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              AppString.exit,
+                              AppLocalizations.of(context)!.exit,
                               style: AppTextStyle.bold20white,
                             ),
 
@@ -310,7 +311,7 @@ builder: (context, snapshot) {
                   },
                   child: _buildProfileTab(
                     icon: Icons.list,
-                    title: AppString.wishlist,
+                    title: AppLocalizations.of(context)!.wishlist,
                   ),
                 ),
               ),
@@ -327,7 +328,7 @@ builder: (context, snapshot) {
 
                   child: _buildProfileTab(
                     icon: Icons.folder,
-                    title: AppString.history,
+                    title: AppLocalizations.of(context)!.history,
                   ),
                 ),
               ),
