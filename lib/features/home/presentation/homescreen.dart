@@ -8,6 +8,7 @@ import 'package:moviesproject/features/home/presentation/profile_Tab.dart';
 import 'package:moviesproject/features/home/presentation/search_Tab.dart';
 import 'package:moviesproject/features/home/presentation/browse_Tab.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
+import 'package:moviesproject/features/home/presentation/search_bloc/search_bloc.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
 import 'package:flutter/material.dart';
@@ -138,7 +139,8 @@ class _HomescreenState extends State<Homescreen> {
               ),
             ),
             child: const SearchTab(),
-          ),           BrowseTab(
+          ),
+          BrowseTab(
             initialGenre: selectedBrowseGenre,
 
           ),
