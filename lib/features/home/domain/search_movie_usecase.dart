@@ -1,5 +1,5 @@
 import 'package:moviesproject/features/home/data/model/movie_model.dart';
-import 'package:moviesproject/features/home/data/repositories/movie_repository.dart';
+import 'package:moviesproject/features/home/data/repository/movie_repository.dart';
 
 class SearchMovieUseCase {
   final MovieRepository movieRepository;

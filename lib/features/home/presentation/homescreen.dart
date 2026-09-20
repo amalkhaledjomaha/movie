@@ -20,7 +20,7 @@ import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/features/home/data/services/movie_service.dart';
-import 'package:moviesproject/features/home/data/repositories/movie_repository.dart';
+import 'package:moviesproject/features/home/data/repository/movie_repository.dart';
 import 'package:moviesproject/features/home/domain/search_movie_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/features/home/data/services/movie_service.dart';

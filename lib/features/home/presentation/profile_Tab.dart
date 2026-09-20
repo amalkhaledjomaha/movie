@@ -10,7 +10,9 @@ import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/features/home/presentation/watchList_Bloc/watchlist_bloc.dart';
 import 'package:moviesproject/features/home/presentation/history_page.dart';
 import 'package:moviesproject/features/home/presentation/watch_list_page.dart';
-
+import 'package:moviesproject/features/home/data/repository/watchlist_repository.dart';
+import 'package:moviesproject/features/home/data/watchlist/watchlist_service.dart';
+import 'package:moviesproject/features/home/domain/usecase/get_watchlist_usecase.dart';
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
 
@@ -45,7 +47,15 @@ class _ProfileTabState extends State<ProfileTab> {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
 
-    return Scaffold(
+    return  BlocProvider(
+        create: (_) => WatchlistBloc(
+          GetWatchlistUseCase(
+            WatchlistRepository(
+              WatchlistService(),
+            ),
+          ),
+        )..add(GetWatchlistEvent()),
+        child:Scaffold(
       backgroundColor: AppColors.black,
 
 body: SafeArea(
@@ -363,6 +373,7 @@ builder: (context, snapshot) {
 },
         ),
       ),
+        )
     );
   }
 
@@ -387,9 +398,8 @@ builder: (context, snapshot) {
         ),
       ],
     );
+
   }
-
-
 }
 
 
