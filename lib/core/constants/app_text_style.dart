@@ -142,7 +142,6 @@ class AppTextStyle {
 
    );
 
-
    static final TextStyle bold20white = TextStyle(
      fontSize:20,
      fontWeight: FontWeight.bold,

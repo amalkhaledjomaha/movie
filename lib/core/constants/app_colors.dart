@@ -44,4 +44,7 @@ class AppColors {
 
   static const Color grayfont= Color(0xFFADADAD);
 
+
+  static const Color searchbackground= Color(0xFF282A28);
+
 }

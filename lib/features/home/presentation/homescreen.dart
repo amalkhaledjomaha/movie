@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
 import 'package:moviesproject/core/routes/app_routes.dart';
@@ -9,10 +8,6 @@ import 'package:moviesproject/features/home/presentation/profile_Tab.dart';
 import 'package:moviesproject/features/home/presentation/search_Tab.dart';
 import 'package:moviesproject/features/home/presentation/browse_Tab.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
-import 'package:moviesproject/features/home/presentation/watchList_Bloc/watchlist_bloc.dart';
-import '../data/repository/watchlist_repository.dart';
-import '../data/watchlist/watchlist_service.dart';
-import '../domain/usecase/get_watchlist_usecase.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 import 'package:moviesproject/features/home/presentation/homeTab.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +17,12 @@ import 'package:moviesproject/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:moviesproject/core/constants/app_colors.dart';
 import 'package:moviesproject/l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviesproject/features/home/data/services/movie_service.dart';
+import 'package:moviesproject/features/home/data/repositories/movie_repository.dart';
+import 'package:moviesproject/features/home/domain/search_movie_usecase.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviesproject/features/home/data/services/movie_service.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -32,16 +33,17 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   int selectedIndex = 0;
+  int currentGenreIndex = 0;
 
   String? selectedBrowseGenre;
 
-  int currentGenreIndex = 0;
 
   final MovieService _movieService = MovieService();
 
   List<String> genres = [];
 
   bool isLoadingGenres = true;
+
   // اسم النوع حسب اللغة
   String getGenreName(BuildContext context, String genre) {
     final localizations = AppLocalizations.of(context)!;
@@ -69,7 +71,8 @@ class _HomescreenState extends State<Homescreen> {
         return genre;
     }
   }
-// دالة Browse
+
+  // دالة Browse
   void openBrowseWithGenre(String genre) {
     setState(() {
       selectedBrowseGenre = genre;
@@ -109,26 +112,7 @@ class _HomescreenState extends State<Homescreen> {
   }
   @override
   Widget build(BuildContext context) {
-
-    if (isLoadingGenres || genres.isEmpty) {
-      return const Scaffold(
-        backgroundColor: AppColors.darkblack,
-        body: Center(
-          child: CircularProgressIndicator(
-            color: AppColors.yellow,
-          ),
-        ),
-      );
-    }
-    return BlocProvider(
-        create: (_) => WatchlistBloc(
-          GetWatchlistUseCase(
-            WatchlistRepository(
-              WatchlistService(),
-            ),
-          ),
-        )..add(GetWatchlistEvent()),
-        child: Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.darkblack,
 
       body: IndexedStack(
@@ -140,12 +124,21 @@ class _HomescreenState extends State<Homescreen> {
               context,
               genres[currentGenreIndex],
             ),
+
             onGenreSelected: openBrowseWithGenre,
 
           ),
 
-          const SearchTab(),
-           BrowseTab(
+          BlocProvider(
+            create: (_) => SearchBloc(
+              searchMovieUseCase: SearchMovieUseCase(
+                movieRepository: MovieRepository(
+                  movieService: MovieService(),
+                ),
+              ),
+            ),
+            child: const SearchTab(),
+          ),           BrowseTab(
             initialGenre: selectedBrowseGenre,
 
           ),
@@ -170,10 +163,8 @@ class _HomescreenState extends State<Homescreen> {
           setState(() {
             selectedIndex = index;
           });
-
         },
       ),
-    )
     );
   }
 }

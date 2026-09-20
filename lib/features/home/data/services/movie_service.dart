@@ -29,6 +29,9 @@ class MovieService {
       queryParameters['genre'] = genre;
     }
 
+    if (queryTerm != null && queryTerm.trim().isNotEmpty) {
+      queryParameters['query_term'] = queryTerm.trim();
+    }
     final uri = Uri.parse(_baseUrl).replace(
       queryParameters: queryParameters,
     );
